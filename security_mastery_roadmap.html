@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>World-Class Security Mastery Roadmap</title>
+<style>
+  :root {
+    --blue: #1a56db; --blue-light: #e1effe; --blue-dark: #1e3a5f;
+    --green: #057a55; --green-light: #def7ec; --green-dark: #014737;
+    --red: #c81e1e; --red-light: #fde8e8; --red-dark: #771d1d;
+    --amber: #b45309; --amber-light: #fef3c7; --amber-dark: #78350f;
+    --purple: #5521b5; --purple-light: #edebfe; --purple-dark: #3b0764;
+    --teal: #0694a2; --teal-light: #d5f5f6; --teal-dark: #014451;
+    --gray: #374151; --gray-light: #f9fafb; --gray-mid: #e5e7eb;
+    --coral: #9b1c1c; --coral-light: #fde8e8;
+    --quantum: #92400e; --quantum-light: #fffbeb;
+    --bg: #f8fafc; --white: #ffffff;
+    --text: #111827; --text-muted: #6b7280;
+    --border: #e5e7eb; --shadow: 0 1px 3px rgba(0,0,0,0.08);
+    --radius: 8px; --radius-lg: 12px;
+    --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--font); background: var(--bg); color: var(--text); font-size: 14px; line-height: 1.6; }
+  
+  /* HEADER */
+  .header { background: linear-gradient(135deg, #0f2044 0%, #1a3a6e 50%, #1e4d8c 100%); color: white; padding: 40px 0 30px; }
+  .header-inner { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+  .header-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; flex-wrap: wrap; }
+  .header h1 { font-size: 28px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 6px; }
+  .header-sub { font-size: 14px; opacity: 0.75; max-width: 500px; line-height: 1.5; }
+  .header-meta { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; }
+  .meta-tag { font-size: 11px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); border-radius: 20px; padding: 3px 10px; white-space: nowrap; }
+  .progress-overview { margin-top: 28px; }
+  .prog-numbers { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-bottom: 16px; }
+  .prog-stat { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); border-radius: var(--radius); padding: 12px 14px; }
+  .prog-stat-n { font-size: 24px; font-weight: 700; }
+  .prog-stat-l { font-size: 11px; opacity: 0.7; margin-top: 2px; }
+  .prog-bar-wrap { background: rgba(255,255,255,0.12); border-radius: 6px; height: 8px; overflow: hidden; }
+  .prog-bar-fill { height: 100%; background: linear-gradient(90deg, #34d399, #60a5fa); border-radius: 6px; transition: width 0.5s ease; }
+  .prog-label { display: flex; justify-content: space-between; font-size: 12px; opacity: 0.75; margin-top: 6px; }
+
+  /* TOOLBAR */
+  .toolbar { background: white; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+  .toolbar-inner { max-width: 1100px; margin: 0 auto; padding: 10px 32px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .search-box { flex: 1; min-width: 220px; position: relative; }
+  .search-box input { width: 100%; padding: 8px 12px 8px 34px; border: 1px solid var(--border); border-radius: var(--radius); font-size: 13px; background: var(--gray-light); outline: none; color: var(--text); }
+  .search-box input:focus { border-color: var(--blue); background: white; }
+  .search-icon { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: var(--text-muted); font-size: 14px; }
+  .filter-btns { display: flex; gap: 4px; flex-wrap: wrap; }
+  .filter-btn { padding: 5px 11px; border: 1px solid var(--border); border-radius: 16px; background: white; color: var(--text-muted); font-size: 11px; font-weight: 500; cursor: pointer; transition: all 0.15s; white-space: nowrap; }
+  .filter-btn:hover { border-color: #9ca3af; color: var(--text); }
+  .filter-btn.active { background: var(--blue); border-color: var(--blue); color: white; }
+  .toolbar-actions { display: flex; gap: 8px; margin-left: auto; }
+  .btn-sm { padding: 6px 12px; border-radius: var(--radius); font-size: 12px; font-weight: 500; cursor: pointer; border: 1px solid; transition: all 0.15s; white-space: nowrap; }
+  .btn-primary { background: var(--blue); color: white; border-color: var(--blue); }
+  .btn-primary:hover { background: #1740a8; }
+  .btn-outline { background: white; color: var(--text-muted); border-color: var(--border); }
+  .btn-outline:hover { background: var(--gray-light); color: var(--text); }
+  .btn-danger { background: white; color: var(--red); border-color: var(--red-light); }
+  .btn-danger:hover { background: var(--red-light); }
+
+  /* MAIN LAYOUT */
+  .main { max-width: 1100px; margin: 0 auto; padding: 28px 32px 60px; }
+
+  /* PHASE BLOCKS */
+  .phase-block { background: white; border: 1px solid var(--border); border-radius: var(--radius-lg); margin-bottom: 16px; overflow: hidden; box-shadow: var(--shadow); }
+  .phase-header { display: flex; align-items: center; gap: 14px; padding: 16px 20px; cursor: pointer; user-select: none; border-bottom: 1px solid transparent; transition: background 0.15s; }
+  .phase-header:hover { background: var(--gray-light); }
+  .phase-header.open { border-bottom-color: var(--border); }
+  .phase-dot { width: 14px; height: 14px; border-radius: 50%; flex-shrink: 0; }
+  .phase-info { flex: 1 }
+  .phase-title-row { display: flex; align-items: center; gap: 10px; margin-bottom: 2px; }
+  .phase-name { font-size: 15px; font-weight: 600; color: var(--text); }
+  .phase-label-tag { font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 10px; text-transform: uppercase; letter-spacing: 0.05em; }
+  .phase-desc { font-size: 12px; color: var(--text-muted); }
+  .phase-right { display: flex; align-items: center; gap: 12px; }
+  .phase-mini-bar { width: 80px; height: 4px; background: var(--gray-mid); border-radius: 2px; overflow: hidden; }
+  .phase-mini-fill { height: 100%; border-radius: 2px; transition: width 0.3s; }
+  .phase-count { font-size: 11px; color: var(--text-muted); white-space: nowrap; }
+  .phase-chevron { font-size: 11px; color: var(--text-muted); transition: transform 0.2s; }
+  .phase-chevron.open { transform: rotate(90deg); }
+  .phase-body { display: none; }
+  .phase-body.open { display: block; }
+
+  /* PHASE NOTE */
+  .phase-note { margin: 16px 20px 4px; padding: 12px 14px; border-radius: var(--radius); font-size: 12px; line-height: 1.6; border: 1px solid; }
+  .note-warn { background: #fffbeb; border-color: #fde68a; color: #92400e; }
+  .note-info { background: var(--blue-light); border-color: #bfdbfe; color: #1e3a8a; }
+  .note-success { background: var(--green-light); border-color: #a7f3d0; color: #064e3b; }
+
+  /* SECTION HEADERS inside phase */
+  .section-header { padding: 10px 20px 6px; background: var(--gray-light); border-bottom: 1px solid var(--border); border-top: 1px solid var(--border); margin-top: 4px; }
+  .section-header:first-child { margin-top: 0; border-top: none; }
+  .section-title { font-size: 11px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; }
+
+  /* TOPICS */
+  .topic { border-bottom: 1px solid var(--border); padding: 14px 20px; }
+  .topic:last-child { border-bottom: none; }
+  .topic.done-topic { background: #f0fdf4; }
+  .topic-row { display: grid; grid-template-columns: 22px 1fr auto; gap: 12px; align-items: start; }
+  .chk { width: 18px; height: 18px; border: 2px solid var(--gray-mid); border-radius: 4px; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; transition: all 0.15s; background: white; }
+  .chk:hover { border-color: var(--blue); }
+  .chk.done { background: var(--green); border-color: var(--green); color: white; }
+  .chk.done::after { content: '✓'; font-size: 11px; font-weight: 700; }
+  .topic-body {}
+  .topic-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; margin-bottom: 4px; }
+  .topic-name { font-size: 14px; font-weight: 600; color: var(--text); line-height: 1.3; cursor: pointer; }
+  .topic-name:hover { color: var(--blue); }
+  .topic-tags { display: flex; gap: 5px; flex-shrink: 0; flex-wrap: wrap; justify-content: flex-end; }
+  .tag { font-size: 10px; padding: 2px 7px; border-radius: 10px; font-weight: 500; white-space: nowrap; }
+  .tag-diff-1 { background: #dcfce7; color: #166534; }
+  .tag-diff-2 { background: #dbeafe; color: #1e40af; }
+  .tag-diff-3 { background: #fef9c3; color: #854d0e; }
+  .tag-diff-4 { background: #fee2e2; color: #991b1b; }
+  .tag-diff-5 { background: #f3e8ff; color: #6b21a8; }
+  .tag-time { background: var(--gray-light); color: var(--text-muted); }
+  .topic-desc { font-size: 13px; color: var(--text-muted); line-height: 1.55; margin-bottom: 10px; }
+  
+  /* WHAT YOU WILL LEARN */
+  .topic-outcomes { margin-bottom: 10px; }
+  .outcomes-label { font-size: 11px; font-weight: 600; color: var(--text); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 5px; }
+  .outcomes-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 4px; }
+  .outcome-item { font-size: 12px; color: var(--text-muted); padding: 3px 0; padding-left: 14px; position: relative; }
+  .outcome-item::before { content: '→'; position: absolute; left: 0; color: var(--blue); font-size: 11px; }
+
+  /* RESOURCES */
+  .resources-label { font-size: 11px; font-weight: 600; color: var(--text); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
+  .resource-item { display: flex; align-items: flex-start; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--gray-mid); }
+  .resource-item:last-child { border-bottom: none; }
+  .res-badge { font-size: 10px; padding: 2px 7px; border-radius: 8px; font-weight: 600; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
+  .rb-free { background: #dcfce7; color: #166534; }
+  .rb-paid { background: #fef9c3; color: #854d0e; }
+  .rb-cert { background: #ede9fe; color: #5b21b6; }
+  .rb-book { background: #fce7f3; color: #9d174d; }
+  .res-content { flex: 1; }
+  .res-name { font-size: 13px; font-weight: 500; }
+  .res-name a { color: var(--blue); text-decoration: none; }
+  .res-name a:hover { text-decoration: underline; }
+  .res-teaches { font-size: 12px; color: var(--text-muted); margin-top: 2px; line-height: 1.5; }
+  .res-teaches strong { color: #374151; font-weight: 600; }
+
+  /* TOOLS / CERTS callout */
+  .tools-row { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
+  .tool-chip { font-size: 11px; padding: 2px 8px; border-radius: 10px; border: 1px solid var(--border); color: var(--text-muted); background: white; }
+  
+  /* SALARY / JOB ROW */
+  .topic-footer { display: flex; align-items: center; gap: 16px; margin-top: 10px; padding-top: 8px; border-top: 1px dashed var(--border); flex-wrap: wrap; }
+  .footer-item { font-size: 12px; color: var(--text-muted); }
+  .footer-item strong { color: var(--text); }
+  .job-chips { display: flex; gap: 5px; flex-wrap: wrap; }
+  .job-chip { font-size: 11px; padding: 2px 8px; border-radius: 10px; background: var(--blue-light); color: var(--blue-dark); border: 1px solid #bfdbfe; }
+
+  /* EMPTY STATE */
+  .empty-state { text-align: center; padding: 60px 20px; color: var(--text-muted); }
+  .empty-state-icon { font-size: 40px; margin-bottom: 12px; }
+  .empty-state h3 { font-size: 16px; font-weight: 600; margin-bottom: 6px; color: var(--text); }
+
+  /* PRINT / EXPORT */
+  @media print {
+    .toolbar, .header-top .toolbar-actions { display: none; }
+    .phase-body { display: block !important; }
+    .phase-header { cursor: default; }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    .header-inner, .toolbar-inner, .main { padding-left: 16px; padding-right: 16px; }
+    .prog-numbers { grid-template-columns: repeat(3, 1fr); }
+    .header-meta { display: none; }
+    .phase-mini-bar { display: none; }
+  }
+
+  /* SCROLL SMOOTH */
+  html { scroll-behavior: smooth; }
+  
+  /* TOAST */
+  .toast { position: fixed; bottom: 24px; right: 24px; background: #111827; color: white; padding: 10px 16px; border-radius: var(--radius); font-size: 13px; opacity: 0; transition: opacity 0.3s; z-index: 999; pointer-events: none; }
+  .toast.show { opacity: 1; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-inner">
+    <div class="header-top">
+      <div>
+        <h1>🛡️ World-Class Security Mastery Roadmap</h1>
+        <div class="header-sub">From zero to quantum security pioneer — every topic, resource, what it teaches, and how it builds toward mastery.</div>
+      </div>
+      <div class="header-meta">
+        <div class="meta-tag">8 Phases · 0–8+ Years</div>
+        <div class="meta-tag">Classical + Cloud + AI + Quantum</div>
+        <div class="meta-tag">Progress saves locally</div>
+      </div>
+    </div>
+    <div class="progress-overview" style="margin-top:24px">
+      <div class="prog-numbers">
+        <div class="prog-stat"><div class="prog-stat-n" id="stat-done">0</div><div class="prog-stat-l">Completed</div></div>
+        <div class="prog-stat"><div class="prog-stat-n" id="stat-total">0</div><div class="prog-stat-l">Total topics</div></div>
+        <div class="prog-stat"><div class="prog-stat-n" id="stat-pct">0%</div><div class="prog-stat-l">Mastery</div></div>
+        <div class="prog-stat"><div class="prog-stat-n" id="stat-res">0</div><div class="prog-stat-l">Resources</div></div>
+        <div class="prog-stat"><div class="prog-stat-n" id="stat-phase">Ph.0</div><div class="prog-stat-l">Active phase</div></div>
+      </div>
+      <div class="prog-bar-wrap">
+        <div class="prog-bar-fill" id="main-bar" style="width:0%"></div>
+      </div>
+      <div class="prog-label"><span id="prog-label-l">Tick topics as you complete them — progress saves automatically</span><span id="prog-label-r">0 / 0 topics</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- TOOLBAR -->
+<div class="toolbar">
+  <div class="toolbar-inner">
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="Search topics, tools, resources…" oninput="handleSearch(this.value)">
+    </div>
+    <div class="filter-btns" id="filter-btns"></div>
+    <div class="toolbar-actions">
+      <button class="btn-sm btn-outline" onclick="expandAll()">Expand all</button>
+      <button class="btn-sm btn-outline" onclick="collapseAll()">Collapse all</button>
+      <button class="btn-sm btn-danger" onclick="confirmReset()">Reset progress</button>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="main" id="phases-container"></div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ═══════════════════════════════════════════════════════════════
+// DATA
+// ═══════════════════════════════════════════════════════════════
+const DATA = [
+{
+  id:'p0', label:'Phase 0', name:'Mindset & Learning System', time:'Month 0–1',
+  cat:'foundation', color:'#6b7280',
+  desc:'Build the foundation before touching any technical content. The learning system you build in month 1 determines how fast you grow in every phase after.',
+  note:{type:'info', text:'This phase is not optional. Security professionals who skip this spend twice as long learning half as much. Build your system first.'},
+  sections:[{
+    title:'Learning infrastructure',
+    topics:[
+      { id:'t-mindset', name:'Growth mindset & learning science', diff:1, time:'Week 1',
+        desc:'Understand how memory and skill acquisition actually work. Apply spaced repetition, active recall, the Feynman technique, and interleaved practice from day one.',
+        outcomes:['Build a daily learning habit (minimum 1 hour)', 'Set up Anki for spaced repetition', 'Use Obsidian to link ideas and build a second brain', 'Apply Feynman technique: teach what you learn to test understanding'],
+        salary:'N/A — foundational habit', jobs:[],
+        tools:['Anki', 'Obsidian', 'Notion'],
+        resources:[
+          { type:'free', name:'Anki spaced repetition app', url:'https://apps.ankiweb.net', teaches:'<strong>What it is:</strong> Free flashcard app based on the SM-2 spaced repetition algorithm. <strong>What you will learn:</strong> How to retain commands, port numbers, CVE patterns, protocol details, and cert exam content without forgetting. Use it for every technical fact you want to keep — ports, cipher suites, ATT&CK technique IDs.' },
+          { type:'free', name:'Obsidian — knowledge management', url:'https://obsidian.md', teaches:'<strong>What it is:</strong> A free local-first note app that links ideas like a wiki. <strong>What you will learn:</strong> How to build a personal knowledge base that grows with your career. Link attack techniques to defences, protocols to their vulnerabilities, tools to their use cases. Avoids the problem where you learn something, close the tab, and forget it a week later.' },
+          { type:'free', name:'Make It Stick — learning science summary', url:'https://www.retrievalpractice.org/make-it-stick', teaches:'<strong>What it is:</strong> Summary of the book on the science of learning. <strong>What you will learn:</strong> Why re-reading and highlighting fail. Why testing yourself, spacing practice, and interleaving topics works. Apply this to every cert study session.' },
+          { type:'free', name:'Ali Abdaal — active recall study method (YouTube)', url:'https://www.youtube.com/watch?v=ukLnPbIffxE', teaches:'<strong>What it is:</strong> Evidence-based study technique explanation. <strong>What you will learn:</strong> How to study smarter — closing the book and recalling from memory, using past papers, spaced repetition scheduling. Critical for Security+, OSCP, CISSP prep.' },
+        ]
+      },
+      { id:'t-typing', name:'Touch typing & terminal fluency', diff:1, time:'Week 1–4',
+        desc:'You will live in terminals for your entire career. Slow typing breaks your flow and costs hours every week. 60+ WPM minimum. Learn bash, vim basics, tmux.',
+        outcomes:['Reach 60+ WPM touch typing speed', 'Navigate Linux filesystem blindly', 'Use vim for basic file editing on any server', 'Use tmux for multi-pane terminal sessions'],
+        salary:'N/A — foundational speed', jobs:[],
+        tools:['bash', 'vim', 'tmux', 'zsh'],
+        resources:[
+          { type:'free', name:'Keybr.com — adaptive typing trainer', url:'https://www.keybr.com', teaches:'<strong>What it is:</strong> Adaptive touch typing trainer that focuses on your weakest keys. <strong>What you will learn:</strong> Muscle memory for all keyboard positions. 20 minutes per day for 4–6 weeks gets most people to 60 WPM. This speed difference is enormous over a career — 30 WPM vs 80 WPM means you do twice as much in the same time.' },
+          { type:'free', name:'OverTheWire: Bandit (25 levels)', url:'https://overthewire.org/wargames/bandit/', teaches:'<strong>What it is:</strong> A beginner-friendly Linux wargame accessed entirely via SSH. <strong>What you will learn:</strong> Real Linux command usage — file navigation, permissions, pipes, grep, base64, netcat, git, SSH keys — by solving actual puzzles. You will use these commands every day as a security professional.' },
+          { type:'free', name:'Vim Adventures — learn vim by playing', url:'https://vim-adventures.com', teaches:'<strong>What it is:</strong> A browser game that teaches vim through gameplay. <strong>What you will learn:</strong> Vim movement (hjkl), editing commands (ci", dd, yy), and navigation. Every Linux server on earth has vim. When you SSH into a production server at 3am during an incident, you need to edit files without a GUI.' },
+          { type:'free', name:'tmux cheatsheet & guide', url:'https://tmuxcheatsheet.com', teaches:'<strong>What it is:</strong> Reference for the terminal multiplexer tmux. <strong>What you will learn:</strong> How to split your terminal into panes, create windows, and keep sessions alive even when you disconnect. Essential for working on remote servers and running multiple tools simultaneously.' },
+        ]
+      },
+      { id:'t-english', name:'Technical English & documentation reading', diff:1, time:'Ongoing',
+        desc:'Every RFC, CVE, security advisory, research paper, and top resource is in English. Your reading speed and comprehension directly cap your learning speed.',
+        outcomes:['Read and understand RFCs and technical specifications', 'Follow security advisories and CVE descriptions', 'Read academic security papers', 'Write clear incident reports and documentation'],
+        salary:'N/A — foundational communication', jobs:['Technical writer (bonus)'],
+        tools:['RFC Editor', 'Google Scholar', 'ArXiv'],
+        resources:[
+          { type:'free', name:'RFC 793 — TCP specification', url:'https://www.rfc-editor.org/rfc/rfc793', teaches:'<strong>What it is:</strong> The original TCP protocol specification from 1981. <strong>What you will learn:</strong> How to read dry technical specifications — the skill that lets you understand any protocol, standard, or specification your career requires. Start with TCP because you already know roughly what it does, which makes the dense language navigable.' },
+          { type:'free', name:'CVE Details — vulnerability database', url:'https://www.cvedetails.com', teaches:'<strong>What it is:</strong> Structured database of public CVEs with CVSS scores, affected versions, and links to advisories. <strong>What you will learn:</strong> How to read and interpret vulnerability disclosures — CVSS vector strings, affected components, exploit availability. Reading 5 CVEs per week builds pattern recognition for vulnerability classes.' },
+        ]
+      },
+    ]
+  }]
+},
+
+{
+  id:'p1', label:'Phase 1', name:'Core Technical Foundations', time:'Months 1–8',
+  cat:'classical', color:'#1a56db',
+  desc:'The non-negotiable foundation. Everything in phases 2–8 builds on this. Do not rush or skip. Complete Security+ before moving on.',
+  note:{type:'info', text:'Target: Security+ certified by month 6–8. Everything else in this phase feeds into that exam and into real job readiness.'},
+  sections:[
+    { title:'Networking & operating systems',
+      topics:[
+        { id:'t-net', name:'Networking fundamentals', diff:1, time:'2–3 months',
+          desc:'OSI model (all 7 layers), TCP/IP stack, subnetting and CIDR notation, DNS resolution, DHCP, ARP, routing protocols (BGP, OSPF), VLANs, NAT, firewall concepts, packet analysis. You cannot secure what you do not understand.',
+          outcomes:['Subnet any IP range mentally', 'Read and interpret Wireshark packet captures', 'Explain how DNS works from query to response', 'Understand TCP 3-way handshake and why it matters for security', 'Configure basic firewall rules', 'Understand VLANs and why they matter for network segmentation'],
+          salary:'PKR 80–150k/mo (entry networking)', jobs:['Network technician', 'Junior SOC analyst', 'Help desk'],
+          tools:['Wireshark', 'Nmap', 'Cisco Packet Tracer', 'GNS3'],
+          resources:[
+            { type:'free', name:'Professor Messer Network+ (N10-008) — full free course', url:'https://www.professormesser.com/network-plus/n10-008/n10-008-video/n10-008-training-course/', teaches:'<strong>What it is:</strong> Complete free Network+ video course from the most trusted free IT training source. <strong>What you will learn:</strong> Every networking concept needed for security — subnetting with practice problems, all routing protocols, wireless standards, network troubleshooting methodology. Short focused videos (5–15 min each) you can watch anywhere.' },
+            { type:'free', name:'TryHackMe — Pre-Security path', url:'https://tryhackme.com/path/outline/presecurity', teaches:'<strong>What it is:</strong> Guided hands-on learning path for absolute beginners. <strong>What you will learn:</strong> Networking basics, Linux fundamentals, web fundamentals — all with real virtual machines in your browser. No setup required. The best starting point for someone who has never worked in IT.' },
+            { type:'free', name:'Cisco Networking Academy — CCNAv7: Introduction to Networks', url:'https://www.netacad.com/courses/networking/ccna-introduction-networks', teaches:'<strong>What it is:</strong> Free official Cisco networking course with labs in Packet Tracer. <strong>What you will learn:</strong> Network models, Ethernet, IP addressing, routing fundamentals, transport layer protocols — from the company that invented most of the internet infrastructure. Packet Tracer labs let you build and test real network configurations.' },
+            { type:'free', name:'Wireshark University — free training', url:'https://www.wiresharktraining.com/free/', teaches:'<strong>What it is:</strong> Free Wireshark training from Laura Chappell, the top protocol analysis educator. <strong>What you will learn:</strong> How to capture and analyse network traffic, identify protocol anomalies, find evidence of attacks in packet captures. Wireshark is used in every security role — SOC, pen-testing, incident response, forensics.' },
+            { type:'cert', name:'CompTIA Network+', url:'https://www.comptia.org/certifications/network', teaches:'<strong>What it is:</strong> Vendor-neutral networking certification. <strong>What it proves:</strong> You understand networking concepts, infrastructure, security, troubleshooting. Exam fee ~$350. Opens entry IT/networking jobs. Not required if going directly to Security+, but highly valuable for building solid foundations.' },
+          ]
+        },
+        { id:'t-linux', name:'Linux administration', diff:2, time:'2–3 months',
+          desc:'File system hierarchy, users and groups, permissions (chmod/chown/ACLs), processes and signals, systemd/cron, bash scripting, package management (apt/yum), SSH configuration, log files (/var/log/), basic networking commands. Every server, cloud instance, and container runs Linux.',
+          outcomes:['Navigate and manage the Linux filesystem without GUI', 'Write bash scripts to automate repetitive tasks', 'Configure SSH securely (key auth, disable password auth, change port)', 'Read and parse system logs to identify issues', 'Manage users, groups, and file permissions correctly', 'Use cron for scheduled tasks', 'Compile software from source'],
+          salary:'PKR 90–160k/mo (Linux sysadmin)', jobs:['Linux administrator', 'Junior DevOps', 'SOC analyst'],
+          tools:['bash', 'vim', 'ssh', 'grep', 'awk', 'sed', 'systemd'],
+          resources:[
+            { type:'free', name:'The Linux Command Line — free book by William Shotts', url:'https://linuxcommand.org/tlcl.php', teaches:'<strong>What it is:</strong> The definitive 540-page guide to bash and the Linux command line — free PDF. <strong>What you will learn:</strong> Everything from basic file operations to advanced shell scripting, pipelines, regular expressions, and process management. Read cover to cover. This single book makes you genuinely competent at Linux.' },
+            { type:'free', name:'Linux Journey — interactive lessons', url:'https://linuxjourney.com', teaches:'<strong>What it is:</strong> Free interactive website teaching Linux from absolute zero with quizzes. <strong>What you will learn:</strong> Grasshopper → Journeyman → Networking Nomad tracks. Covers command line, text manipulation, users, permissions, processes, init systems, networking. Gamified — each section has short exercises.' },
+            { type:'free', name:'OverTheWire: Bandit (levels 0–33)', url:'https://overthewire.org/wargames/bandit/', teaches:'<strong>What it is:</strong> Linux skills wargame — 34 levels of SSH challenges. <strong>What you will learn:</strong> Every level teaches a specific command or concept: file operations, permissions, SSH tunnels, git, base64, binary analysis. By level 33 you are genuinely comfortable in a Linux terminal.' },
+            { type:'free', name:'TryHackMe — Linux Fundamentals 1, 2, 3', url:'https://tryhackme.com/module/linux-fundamentals', teaches:'<strong>What it is:</strong> Three-part guided Linux course with embedded VMs. <strong>What you will learn:</strong> Filesystem navigation, text editors, permissions, processes, network commands, automation. Guided rooms with answers — you learn, not just guess.' },
+            { type:'paid', name:'Linux Bible — Christopher Negus (book)', url:'https://www.wiley.com/en-us/Linux+Bible%2C+10th+Edition-p-9781119578888', teaches:'<strong>What it is:</strong> The most comprehensive Linux administration book available. <strong>What you will learn:</strong> Full system administration — package management, shell scripting, systemd, networking, storage, security. 1000+ pages. Use as a reference throughout your career.' },
+          ]
+        },
+        { id:'t-windows', name:'Windows & Active Directory', diff:2, time:'2 months',
+          desc:'Active Directory Domain Services, organisational units, Group Policy Objects, Kerberos authentication, NTLM, PowerShell scripting, registry, Windows event logs, LDAP queries, SYSVOL. 90% of enterprise environments run Windows. You must know it to attack and defend it.',
+          outcomes:['Set up and manage a basic Active Directory domain', 'Write PowerShell scripts for automation and security tasks', 'Read and query Windows Event Logs for security events', 'Understand Kerberos ticket flow and why it matters for attacks', 'Query AD with LDAP and tools like BloodHound', 'Configure and apply Group Policy Objects'],
+          salary:'PKR 100–180k/mo (Windows admin)', jobs:['Windows administrator', 'Junior pen-tester', 'SOC analyst L1'],
+          tools:['PowerShell', 'Active Directory Users and Computers', 'Group Policy Management', 'Event Viewer'],
+          resources:[
+            { type:'free', name:'TryHackMe — Active Directory Basics', url:'https://tryhackme.com/room/winadbasics', teaches:'<strong>What it is:</strong> Guided room explaining Active Directory from scratch. <strong>What you will learn:</strong> What AD is, how users/groups/OUs/GPOs work, forest and domain trusts, Kerberos basics. The attacker\'s primary target explained clearly before you attack it.' },
+            { type:'free', name:'Microsoft Learn — Active Directory Domain Services', url:'https://learn.microsoft.com/en-us/training/paths/active-directory-domain-services/', teaches:'<strong>What it is:</strong> Official free Microsoft training on AD DS. <strong>What you will learn:</strong> How to install, configure, and manage Active Directory. User and group management, Group Policy, site topology. You need to admin it before you can attack it effectively.' },
+            { type:'free', name:'Microsoft Learn — PowerShell fundamentals', url:'https://learn.microsoft.com/en-us/training/paths/powershell/', teaches:'<strong>What it is:</strong> Official Microsoft PowerShell course — free. <strong>What you will learn:</strong> PowerShell syntax, cmdlets, pipeline, modules, remoting, Active Directory queries. Both attackers and defenders use PowerShell constantly — it is the Swiss Army knife of Windows systems.' },
+            { type:'paid', name:'TCM Security — Practical Ethical Hacking course', url:'https://academy.tcm-sec.com/p/practical-ethical-hacking-the-complete-course', teaches:'<strong>What it is:</strong> The best affordable comprehensive ethical hacking course (~$30). <strong>What you will learn:</strong> Active Directory attacks from scratch — initial compromise, LLMNR poisoning, BloodHound graph analysis, Kerberoasting, AS-REP roasting, Pass-the-Hash, Pass-the-Ticket, Golden Tickets, Silver Tickets. Real attack methodology with a built lab.' },
+          ]
+        },
+      ]
+    },
+    { title:'Security foundations & first certification',
+      topics:[
+        { id:'t-crypto', name:'Cryptography fundamentals', diff:2, time:'6–8 weeks',
+          desc:'Symmetric encryption (AES-128/256), asymmetric encryption (RSA, ECC, Diffie-Hellman), hashing (MD5 weakness, SHA-256, bcrypt/Argon2), MAC and HMAC, digital signatures, PKI (CAs, CSRs, certificates), TLS/SSL handshake, certificate transparency. Cryptography is the foundation of all security — understand how, not just what.',
+          outcomes:['Explain AES-256 CBC vs GCM and when to use each', 'Understand why RSA works and what breaks it (factoring)', 'Implement TLS certificate chain validation', 'Generate and verify digital signatures', 'Explain why MD5 is broken and what replaces it', 'Understand key exchange protocols (ECDHE, etc.)'],
+          salary:'Prerequisite — no direct salary', jobs:['Security engineer', 'Cryptography analyst', 'PKI administrator'],
+          tools:['OpenSSL', 'GnuPG', 'CyberChef'],
+          resources:[
+            { type:'free', name:'Crypto101 — free 247-page book', url:'https://crypto101.io', teaches:'<strong>What it is:</strong> A complete cryptography textbook — free PDF. <strong>What you will learn:</strong> From XOR ciphers to RSA, built from first principles with no mathematics degree required. Covers: stream ciphers, block ciphers, public key crypto, hash functions, MACs, signatures — every concept explained with diagrams and code.' },
+            { type:'free', name:'CryptoHack — interactive cryptography challenges', url:'https://cryptohack.org', teaches:'<strong>What it is:</strong> Learn cryptography by breaking it — 200+ interactive challenges. <strong>What you will learn:</strong> ECB penguin attack, RSA textbook vs OAEP padding, hash length extension, CBC padding oracle, ECDSA nonce reuse. Each challenge teaches a real crypto vulnerability through exploitation. Used by professional cryptographers and CTF players.' },
+            { type:'free', name:'Khan Academy — Cryptography course', url:'https://www.khanacademy.org/computing/computer-science/cryptography', teaches:'<strong>What it is:</strong> Free video course on cryptography with exercises. <strong>What you will learn:</strong> Caesar cipher → frequency analysis → Vigenère → RSA. Perfect visual starting point before Crypto101. Khan Academy is famous for clarity — cryptography is no exception.' },
+            { type:'paid', name:'Serious Cryptography — Jean-Philippe Aumasson', url:'https://nostarch.com/seriouscrypto', teaches:'<strong>What it is:</strong> The professional cryptography reference — what working security engineers use. <strong>What you will learn:</strong> AES internals, public-key cryptography, hash functions, TLS deep dive, authenticated encryption, post-quantum overview. Author is one of the designers of the BLAKE hash function.' },
+          ]
+        },
+        { id:'t-secplus', name:'CompTIA Security+ (SY0-701)', diff:2, time:'3–4 months study + exam',
+          desc:'Your first major certification. 7 domains: threats/attacks/vulnerabilities, architecture, implementation, identity management, network security, operations and IR, governance/risk/compliance. This certification opens every entry-level security door and is required by US DoD for all government IT workers.',
+          outcomes:['Understand all major attack types and mitigations', 'Explain PKI, cryptography, and certificate management', 'Describe identity federation, SSO, MFA implementations', 'Know incident response phases and procedures', 'Understand risk management frameworks and compliance', 'Pass the exam (90 questions, 90 minutes, 750/900 required)'],
+          salary:'PKR 120–220k/mo after cert', jobs:['SOC analyst L1', 'IT security specialist', 'Junior pen-tester', 'Help desk security'],
+          tools:['Anki (for exam prep)', 'ExamCompass'],
+          resources:[
+            { type:'free', name:'Professor Messer — SY0-701 full free course', url:'https://www.professormesser.com/security-plus/sy0-701/sy0-701-video/sy0-701-training-course/', teaches:'<strong>What it is:</strong> Complete free Security+ course aligned to the SY0-701 objectives — 170+ videos. <strong>What you will learn:</strong> Every exam domain systematically. Short 5–15 minute videos mean you can study during commutes. Best free Security+ resource that exists. Do all videos, then practice questions.' },
+            { type:'free', name:'ExamCompass — free practice tests by domain', url:'https://www.examcompass.com/comptia-security-plus-practice-test', teaches:'<strong>What it is:</strong> Free Security+ practice questions organised by exam domain. <strong>What you will learn:</strong> Which domains you are weak in, how the question wording works, speed under exam conditions. After every Messer module, do the matching ExamCompass domain test.' },
+            { type:'paid', name:'Mike Chapple & David Seidl — Security+ Study Guide 9th Ed', url:'https://www.wiley.com/en-us/CompTIA+Security%2B+Study+Guide%2C+9th+Edition-p-9781119736622', teaches:'<strong>What it is:</strong> The most popular Security+ textbook (~$45). <strong>What you will learn:</strong> Deep explanations of every concept with 1000+ practice questions. Read this alongside Messer for full coverage. End-of-chapter questions identify gaps before exam day.' },
+            { type:'cert', name:'CompTIA Security+ SY0-701 exam', url:'https://www.comptia.org/certifications/security', teaches:'<strong>What it is:</strong> Globally recognised baseline security certification. Exam fee ~$380. <strong>What it opens:</strong> SOC analyst, IT security specialist, junior pen-tester roles. Required by US DoD 8570 for all government IT workers. Valid for 3 years, renewed with continuing education or retake.' },
+          ]
+        },
+        { id:'t-python', name:'Python for security', diff:2, time:'2–3 months',
+          desc:'Python scripting, file I/O, socket programming, the requests library for HTTP, subprocess for running tools, regex for log parsing, JSON handling, argparse for CLI tools. Write your own security tools. Automate repetitive tasks. Understand how tools you use actually work.',
+          outcomes:['Write a port scanner from scratch using sockets', 'Parse and analyse log files with regex and pandas', 'Make authenticated API calls and parse JSON responses', 'Build a simple web scraper for OSINT', 'Automate repetitive security tasks', 'Understand how Metasploit modules are structured'],
+          salary:'Adds 20–40% to any security salary', jobs:['Security engineer', 'Automation engineer', 'Threat analyst'],
+          tools:['Python 3', 'requests', 'scapy', 'pwntools', 'paramiko'],
+          resources:[
+            { type:'free', name:'Automate the Boring Stuff with Python — free online book', url:'https://automatetheboringstuff.com', teaches:'<strong>What it is:</strong> Free Python book focused on practical automation — the most read Python book in the world. <strong>What you will learn:</strong> Files and folders, regex, web scraping, working with spreadsheets and PDFs, scheduling tasks. Every chapter builds real tools you can use immediately in security work.' },
+            { type:'free', name:'TCM Security — Python for Hackers (YouTube, free)', url:'https://www.youtube.com/watch?v=egg-GoT5iVk', teaches:'<strong>What it is:</strong> Free 6-hour Python security scripting course. <strong>What you will learn:</strong> Build a port scanner, SSH brute-forcer, directory scanner, password cracker, and more — each explained line by line. Shows you how real security tools are built from first principles.' },
+            { type:'paid', name:'Black Hat Python 2nd Edition — No Starch Press', url:'https://nostarch.com/black-hat-python2E', teaches:'<strong>What it is:</strong> The definitive Python security programming book (~$40). <strong>What you will learn:</strong> Network sniffers, raw socket programming, trojans, keyloggers, process injection, sandbox detection, code injection, forensic tools. Full source code for every example. Written by a professional pentester.' },
+          ]
+        },
+      ]
+    },
+  ]
+},
+
+{
+  id:'p2', label:'Phase 2', name:'Offensive Security — Red Team', time:'Year 1–2',
+  cat:'offensive', color:'#c81e1e',
+  desc:'Learn to think and act like an attacker. Understand every exploitation technique at a deep technical level before specialising in defence or architecture.',
+  note:{type:'warn', text:'Always practice in legal environments only — your own lab, TryHackMe, HackTheBox, or with explicit written permission. Unauthorised access is a criminal offence in every country.'},
+  sections:[
+    { title:'Web application security',
+      topics:[
+        { id:'t-webapp', name:'Web application security (OWASP Top 10)', diff:3, time:'3–4 months',
+          desc:'SQL injection, Cross-Site Scripting (reflected, stored, DOM), CSRF, IDOR, SSRF, XXE, insecure deserialization, broken authentication, security misconfiguration, CORS issues. Burp Suite Professional mastery — Repeater, Intruder, Scanner, Collaborator, extensions. HTTP protocol deep understanding.',
+          outcomes:['Exploit all 10 OWASP vulnerability classes in a lab', 'Use Burp Suite Repeater to manually test endpoints', 'Write a working SQL injection payload for UNION-based extraction', 'Bypass CSRF protections', 'Find and exploit IDOR vulnerabilities', 'Identify and exploit SSRF to reach internal services'],
+          salary:'PKR 200–400k/mo (AppSec engineer)', jobs:['AppSec engineer', 'Web pen-tester', 'Bug bounty hunter', 'SOC L2'],
+          tools:['Burp Suite', 'OWASP ZAP', 'sqlmap', 'ffuf', 'Nikto', 'DVWA', 'WebGoat'],
+          resources:[
+            { type:'free', name:'PortSwigger Web Security Academy — complete free course', url:'https://portswigger.net/web-security', teaches:'<strong>What it is:</strong> The best free web security course in the world — 200+ guided labs, 100% free. <strong>What you will learn:</strong> Every vulnerability class with theory, then immediately exploit it in a real lab. SQLi → blind SQLi → time-based. XSS → DOM XSS → filter bypass. The progression is perfect. Do ALL labs, including apprentice and practitioner levels.' },
+            { type:'free', name:'OWASP Top 10 official documentation', url:'https://owasp.org/www-project-top-ten/', teaches:'<strong>What it is:</strong> The authoritative list of the 10 most critical web security risks. <strong>What you will learn:</strong> For each vulnerability — what it is, example attack scenarios, real-world impact, how to prevent it. This is the standard reference every web security professional uses.' },
+            { type:'free', name:'DVWA — Damn Vulnerable Web Application', url:'https://dvwa.co.uk', teaches:'<strong>What it is:</strong> A PHP/MySQL web application deliberately made insecure for practice. <strong>What you will learn:</strong> Practice each attack at Low/Medium/High difficulty. Source code is visible — so you see exactly WHY each vulnerability exists in the code, not just how to exploit it. Run locally with Docker.' },
+            { type:'cert', name:'Burp Suite Certified Practitioner (BSCP)', url:'https://portswigger.net/web-security/certification', teaches:'<strong>What it is:</strong> Premium web application security certification from PortSwigger. <strong>What it proves:</strong> You can find and exploit complex web vulnerabilities under time pressure — 4-hour practical exam on real applications. Growing recognition among web security employers.' },
+          ]
+        },
+      ]
+    },
+    { title:'Network penetration testing',
+      topics:[
+        { id:'t-pentest', name:'Network penetration testing methodology', diff:4, time:'4–6 months',
+          desc:'Full pen-test lifecycle: pre-engagement, reconnaissance (passive OSINT + active scanning), enumeration, vulnerability analysis, exploitation, post-exploitation, lateral movement, reporting. Nmap, Metasploit, Mimikatz, Impacket, CrackMapExec. PTES and OSSTMM methodologies.',
+          outcomes:['Complete a full internal network pen-test from initial access to domain admin', 'Write a professional pen-test report with CVSS scores and remediation steps', 'Use Metasploit modules and understand what they do at the packet level', 'Perform OSINT reconnaissance without touching the target', 'Enumerate SMB, LDAP, DNS, RPC services', 'Establish persistence and lateral movement'],
+          salary:'PKR 250–500k/mo (pen-tester)', jobs:['Penetration tester', 'Red team analyst', 'Vulnerability assessor', 'Security consultant'],
+          tools:['Nmap', 'Metasploit', 'Mimikatz', 'BloodHound', 'Impacket', 'CrackMapExec', 'Cobalt Strike'],
+          resources:[
+            { type:'free', name:'TryHackMe — Jr Penetration Tester path', url:'https://tryhackme.com/path/outline/jrpenetrationtester', teaches:'<strong>What it is:</strong> Structured guided path from absolute beginner to junior pen-tester. <strong>What you will learn:</strong> Full methodology — recon, scanning, exploitation, post-exploitation, web attacks, network attacks, reporting. Every room guided with hints. Best starting point for pen-testing.' },
+            { type:'paid', name:'TCM Security — Practical Ethical Hacking (full course)', url:'https://academy.tcm-sec.com/p/practical-ethical-hacking-the-complete-course', teaches:'<strong>What it is:</strong> Best affordable pen-test course (~$30). <strong>What you will learn:</strong> Complete methodology with a built lab. AD attacks, web attacks, wireless attacks, report writing. The AD section alone is worth the price — covers every major enterprise attack chain.' },
+            { type:'paid', name:'HackTheBox Academy — Penetration Tester path', url:'https://academy.hackthebox.com/path/preview/penetration-tester', teaches:'<strong>What it is:</strong> Deep technical pen-test curriculum from HackTheBox (~$14/month). <strong>What you will learn:</strong> Footprinting, scanning, exploitation, privilege escalation, lateral movement, Active Directory attacks, post-exploitation, reporting — all with real lab machines. The technical depth is higher than TCM.' },
+            { type:'cert', name:'OSCP — Offensive Security Certified Professional', url:'https://www.offsec.com/courses/pen-200/', teaches:'<strong>What it is:</strong> The gold standard penetration testing certification. 24-hour practical exam on real machines — no multiple choice. <strong>What it proves:</strong> You can actually pen-test, not just answer theory questions. Required for senior pen-test and red team roles. PEN-200 course included, 90-day lab access.' },
+          ]
+        },
+        { id:'t-ad-attacks', name:'Active Directory attacks', diff:4, time:'2–3 months',
+          desc:'LLMNR/NBT-NS poisoning, SMB relay attacks, BloodHound attack path analysis, Kerberoasting, AS-REP roasting, Pass-the-Hash, Pass-the-Ticket, Overpass-the-Hash, Golden Ticket, Silver Ticket, DCSync, LDAP enumeration, domain trust abuse.',
+          outcomes:['Map complete AD attack path from low-privilege user to Domain Admin', 'Perform and detect Kerberoasting at the packet level', 'Extract NTDS.dit and crack hashes offline', 'Create and use a Golden Ticket for persistence', 'Enumerate AD with BloodHound and identify shortest attack paths', 'Abuse domain trusts to pivot between domains'],
+          salary:'PKR 300–600k/mo (red team specialist)', jobs:['Red team operator', 'AD security specialist', 'Senior pen-tester'],
+          tools:['BloodHound', 'Mimikatz', 'Impacket', 'Rubeus', 'CrackMapExec', 'PowerView'],
+          resources:[
+            { type:'free', name:'BloodHound — free AD attack path tool', url:'https://github.com/BloodHoundAD/BloodHound', teaches:'<strong>What it is:</strong> Graph-based AD attack path finder — the most impactful free offensive tool for enterprise networks. <strong>What you will learn:</strong> Run SharpHound collector, load data, query shortest paths to Domain Admin, identify Kerberoastable accounts, find AS-REP roastable users, map all attack vectors visually.' },
+            { type:'free', name:'TryHackMe — Attacking Kerberos room', url:'https://tryhackme.com/room/attackingkerberos', teaches:'<strong>What it is:</strong> Guided room on Kerberos attacks. <strong>What you will learn:</strong> Kerberoasting (how it works at the TGS level, not just the tool command), AS-REP roasting, Pass-the-Ticket, Golden/Silver Ticket creation. Protocol-level understanding — why these attacks work, not just how.' },
+            { type:'paid', name:'TCM Security — Practical AD Attacks course', url:'https://academy.tcm-sec.com/p/practical-active-directory-pentesting', teaches:'<strong>What it is:</strong> Dedicated AD attack course with its own lab environment. <strong>What you will learn:</strong> Every AD attack vector methodically — initial access vectors, enumeration strategies, privilege escalation chains, domain persistence. Full attack simulations in a realistic enterprise lab.' },
+          ]
+        },
+        { id:'t-bof', name:'Buffer overflows & exploit development', diff:4, time:'2–3 months',
+          desc:'Stack-based buffer overflows, finding the offset (Mona.py, msf-pattern_create), controlling EIP, bad character identification, shellcode generation, SEH-based overflows, x86 assembly reading, ASLR/DEP awareness. Required for OSCP and senior red team.',
+          outcomes:['Write a working buffer overflow exploit for a custom vulnerable application', 'Find buffer overflow offsets using cyclic patterns', 'Generate custom shellcode with msfvenom', 'Identify bad characters that break shellcode', 'Understand x86 assembly enough to read disassembly', 'Handle SEH-based overflows'],
+          salary:'Significant premium for exploit dev skills', jobs:['Exploit developer', 'Vulnerability researcher', 'Red team operator'],
+          tools:['Immunity Debugger', 'x64dbg', 'Mona.py', 'msfvenom', 'pwntools', 'GDB-peda'],
+          resources:[
+            { type:'free', name:'TryHackMe — Buffer Overflow Prep room', url:'https://tryhackme.com/room/bufferoverflowprep', teaches:'<strong>What it is:</strong> Step-by-step buffer overflow methodology for OSCP — 10 practice targets. <strong>What you will learn:</strong> Exact OSCP buffer overflow methodology: fuzzing → finding offset → controlling EIP → bad characters → finding JMP ESP → shellcode → shell. Builds the muscle memory you need for the exam.' },
+            { type:'free', name:'TCM Security — Buffer Overflows Made Easy (YouTube)', url:'https://www.youtube.com/watch?v=qSnPayW6VMY', teaches:'<strong>What it is:</strong> Free 2-hour buffer overflow tutorial. <strong>What you will learn:</strong> Complete walkthrough of a Windows 32-bit buffer overflow from scratch — every step explained, no prior assembly knowledge required. Best starting point for this topic.' },
+            { type:'free', name:'Exploit.education — Protostar challenges', url:'https://exploit.education/protostar/', teaches:'<strong>What it is:</strong> Progressive binary exploitation challenges — Stack0 through Stack7, format strings, heap. <strong>What you will learn:</strong> Stack overflows, heap overflows, format string vulnerabilities — each level adds one new concept. The learning curve is perfect.' },
+          ]
+        },
+        { id:'t-malware', name:'Malware analysis & reverse engineering', diff:4, time:'3–4 months',
+          desc:'Static analysis (strings, PE header parsing, imports/exports, section entropy), dynamic analysis (Process Monitor, Process Hacker, Wireshark, Regshot), sandbox analysis, x86 assembly reading, Ghidra decompiler, YARA rule writing, malware family identification.',
+          outcomes:['Perform full static analysis of a PE executable', 'Identify malware families by their behavioural signatures', 'Write YARA rules to detect specific malware samples', 'Use Ghidra to decompile and understand unknown binaries', 'Sandbox an unknown file safely and interpret results', 'Understand common persistence mechanisms (Registry, scheduled tasks, services)'],
+          salary:'PKR 300–600k/mo (malware analyst)', jobs:['Malware analyst', 'Threat intelligence analyst', 'Incident responder', 'AV/EDR researcher'],
+          tools:['Ghidra', 'x64dbg', 'ANY.RUN', 'VirusTotal', 'YARA', 'PE Studio', 'Cutter'],
+          resources:[
+            { type:'free', name:'Malware Unicorn — free analysis workshops', url:'https://malwareunicorn.org/workshops.html', teaches:'<strong>What it is:</strong> Hands-on malware analysis workshops from a professional malware analyst — completely free. <strong>What you will learn:</strong> RE101 (intro to RE with real samples), PE101 (PE format deep dive), Unprotect Project techniques. Real malware samples, real tools, professional methodology.' },
+            { type:'free', name:'Ghidra — NSA open-source reverse engineering tool', url:'https://ghidra-sre.org', teaches:'<strong>What it is:</strong> Professional-grade reverse engineering suite from the NSA — free. <strong>What you will learn:</strong> Disassembly, decompilation back to C-like pseudocode, code cross-references, scripting with Python/Java. The industry standard for malware analysis and vulnerability research.' },
+            { type:'free', name:'ANY.RUN — interactive online sandbox', url:'https://any.run', teaches:'<strong>What it is:</strong> Cloud sandbox where you watch malware execute live in a VM — free tier available. <strong>What you will learn:</strong> Every file system change, registry modification, network connection, and API call made by a suspicious file. Faster than setting up your own sandbox. Public analysis reports teach you what to look for.' },
+            { type:'paid', name:'Practical Malware Analysis — Sikorski & Honig (No Starch)', url:'https://nostarch.com/malware', teaches:'<strong>What it is:</strong> The definitive malware analysis textbook — 800 pages, 20 chapters. <strong>What you will learn:</strong> Basic static and dynamic analysis → advanced techniques → anti-analysis (obfuscation, packing, anti-debugging) → rootkits → malware data encoding → C2 protocols. Every technique has lab exercises with real malware.' },
+            { type:'cert', name:'GREM — GIAC Reverse Engineering Malware', url:'https://www.giac.org/certifications/reverse-engineering-malware-grem/', teaches:'<strong>What it is:</strong> The top malware analysis certification. <strong>What it proves:</strong> You can reverse-engineer real malware professionally. Required or preferred by government agencies, financial institutions, and major AV vendors. SANS FOR610 course prepares for it.' },
+          ]
+        },
+      ]
+    },
+  ]
+},
+
+{
+  id:'p3', label:'Phase 3', name:'Defensive Security — Blue Team', time:'Year 1–3',
+  cat:'defensive', color:'#1e3a5f',
+  desc:'Learn to detect, investigate, and respond to the attacks you learned in Phase 2. Do this concurrently with Phase 2 — the best security engineers understand both sides.',
+  sections:[
+    { title:'SOC operations & detection',
+      topics:[
+        { id:'t-siem', name:'SIEM & log analysis', diff:3, time:'3–4 months',
+          desc:'Splunk SPL queries, Elastic Stack (ELK) with Kibana, Microsoft Sentinel KQL, log ingestion and parsing, correlation rules, alert tuning (reducing false positives), dashboard building, threat hunting workflows, log sources (Windows Event Log, Sysmon, firewall, DNS, proxy).',
+          outcomes:['Write Splunk SPL queries to hunt for specific attack patterns', 'Build correlation rules that detect multi-stage attacks', 'Tune alerts to reduce false positives below 10%', 'Create dashboards for SOC metrics and incident tracking', 'Identify attacker TTPs from log data alone', 'Configure Sysmon for high-fidelity Windows logging'],
+          salary:'PKR 150–300k/mo (SOC analyst L2)', jobs:['SOC analyst L1/L2', 'Threat hunter', 'SIEM engineer', 'Detection engineer'],
+          tools:['Splunk', 'Elastic/ELK Stack', 'Microsoft Sentinel', 'Sysmon', 'Graylog', 'QRadar'],
+          resources:[
+            { type:'free', name:'Splunk Free Training — Splunk Fundamentals 1', url:'https://www.splunk.com/en_us/training/free-courses.html', teaches:'<strong>What it is:</strong> Official free Splunk course — the most used SIEM tool globally. <strong>What you will learn:</strong> Search language (SPL) from basics to complex queries, creating reports and dashboards, setting up alerts, using lookups. Knowing Splunk gets you hired faster than almost any other tool skill in a SOC role.' },
+            { type:'free', name:'TryHackMe — SOC Level 1 path', url:'https://tryhackme.com/path/outline/soclevel1', teaches:'<strong>What it is:</strong> Complete junior SOC analyst curriculum with hands-on labs. <strong>What you will learn:</strong> Pyramid of Pain, Cyber Kill Chain, phishing analysis, Splunk fundamentals, network log analysis, SIEM alert investigation. Full progression from theory to practical investigation skills.' },
+            { type:'free', name:'Microsoft Sentinel Ninja training (L100–L400)', url:'https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/become-a-microsoft-sentinel-ninja-the-complete-level-400/ba-p/1246310', teaches:'<strong>What it is:</strong> Microsoft\'s free multi-level Sentinel training — from beginner to advanced. <strong>What you will learn:</strong> Sentinel deployment, data connector configuration, KQL query writing, detection rule creation, workbook building, threat hunting, SOAR playbooks with Logic Apps. Essential for Azure/cloud SOC roles.' },
+            { type:'cert', name:'Splunk Core Certified User', url:'https://www.splunk.com/en_us/training/certification-track/splunk-core-certified-user.html', teaches:'<strong>What it is:</strong> Entry-level Splunk certification. <strong>What it proves:</strong> Basic Splunk usage — searching, reporting, dashboards. Quick and affordable. First cert to get if targeting SOC roles.' },
+          ]
+        },
+        { id:'t-dfir', name:'Digital forensics & incident response', diff:3, time:'3–4 months',
+          desc:'Incident response lifecycle (preparation, identification, containment, eradication, recovery, lessons learned), evidence collection and preservation, disk imaging (FTK Imager, dd), memory forensics (Volatility3), timeline analysis, network forensics, chain of custody, IR report writing.',
+          outcomes:['Acquire a forensically sound disk image', 'Extract running processes and network connections from a memory dump', 'Build a timeline of attacker activity from multiple log sources', 'Write a clear IR report with root cause analysis', 'Perform malware triage during an active incident', 'Understand evidence handling and chain of custody'],
+          salary:'PKR 200–400k/mo (IR analyst)', jobs:['Incident responder', 'Digital forensic analyst', 'DFIR consultant', 'Threat hunter'],
+          tools:['Volatility3', 'FTK Imager', 'Autopsy', 'KAPE', 'Velociraptor', 'TheHive'],
+          resources:[
+            { type:'free', name:'Volatility Foundation — memory forensics framework', url:'https://volatilityfoundation.org', teaches:'<strong>What it is:</strong> The industry-standard open-source memory forensics tool. <strong>What you will learn:</strong> Extract running processes, hidden processes, network connections, registry hives, browser history, passwords, injected code, and malware artefacts from RAM dumps. Memory forensics is the most reliable way to find an active attacker.' },
+            { type:'free', name:'Blue Team Labs Online — free DFIR challenges', url:'https://blueteamlabs.online', teaches:'<strong>What it is:</strong> Free gamified blue-team challenges with real forensic evidence files. <strong>What you will learn:</strong> Log analysis, memory forensics, network forensics, malware analysis, OSINT — through real case-style scenarios with scoring. Practice without needing to set up your own lab.' },
+            { type:'free', name:'SANS DFIR blog and free posters', url:'https://www.sans.org/blog/digital-forensics-and-incident-response/', teaches:'<strong>What it is:</strong> Free resources from the top DFIR training provider in the world. <strong>What you will learn:</strong> DFIR methodology, evidence acquisition procedures, tool usage, Windows forensics artefacts (shellbags, LNK files, prefetch, Amcache), memory analysis techniques. The free posters alone are worth bookmarking.' },
+            { type:'cert', name:'BTL1 — Blue Team Level 1', url:'https://www.securityblue.team/why-btl1', teaches:'<strong>What it is:</strong> A practical 24-hour incident response certification. <strong>What it proves:</strong> You can investigate a real incident and produce a coherent response report — not just answer multiple choice. Growing recognition among employers who want hands-on analysts, not just paper certifications.' },
+          ]
+        },
+      ]
+    },
+    { title:'Threat intelligence & GRC',
+      topics:[
+        { id:'t-threat', name:'Threat intelligence & MITRE ATT&CK', diff:3, time:'2–3 months',
+          desc:'MITRE ATT&CK framework (tactics, techniques, sub-techniques), threat actor profiling, IOC/IOA hunting, YARA rules, Sigma rules, intelligence lifecycle, threat feeds (MISP, OpenCTI), diamond model, kill chain analysis.',
+          outcomes:['Map any attack to MITRE ATT&CK techniques', 'Write YARA rules to detect specific malware families', 'Write Sigma rules that convert to multiple SIEM platforms', 'Profile a threat actor from public reporting', 'Build a threat intelligence feed for your organisation', 'Use ATT&CK Navigator to build detection coverage heatmaps'],
+          salary:'PKR 200–380k/mo (threat analyst)', jobs:['Threat intelligence analyst', 'Detection engineer', 'SOC L2/L3', 'CISO advisor'],
+          tools:['MITRE ATT&CK Navigator', 'MISP', 'OpenCTI', 'YARA', 'Sigma', 'VirusTotal'],
+          resources:[
+            { type:'free', name:'MITRE ATT&CK framework', url:'https://attack.mitre.org', teaches:'<strong>What it is:</strong> The complete encyclopedia of adversary tactics and techniques — free. Used by every major SOC, red team, and threat intelligence team in the world. <strong>What you will learn:</strong> All 14 tactics, 200+ techniques mapped to real threat actors with procedure examples and detection guidance. Use ATT&CK Navigator to visualise your detection coverage and hunt hypotheses.' },
+            { type:'free', name:'Sigma rules GitHub project', url:'https://github.com/SigmaHQ/sigma', teaches:'<strong>What it is:</strong> Generic detection rule format that converts to Splunk, Elastic, Sentinel, QRadar, and 20+ other SIEMs. <strong>What you will learn:</strong> Read existing community rules to understand what good detections look like. Then write your own custom rules for your environment. One rule → many SIEMs.' },
+            { type:'paid', name:'Applied Network Security Monitoring — Bejtlich (book)', url:'https://www.elsevier.com/books/applied-network-security-monitoring/bejtlich/978-0-12-417208-1', teaches:'<strong>What it is:</strong> The Network Security Monitoring bible by Richard Bejtlich, founder of Mandiant. <strong>What you will learn:</strong> How to build detection infrastructure from scratch, what data to collect, how to analyse it, how to find real attackers in network traffic. Still the most important defensive network security book ever written.' },
+          ]
+        },
+        { id:'t-grc', name:'GRC — governance, risk & compliance', diff:2, time:'2–3 months',
+          desc:'ISO 27001:2022 controls and implementation, NIST Cybersecurity Framework 2.0, NIST SP 800-53, PCI-DSS v4.0, GDPR data protection requirements, HIPAA, SOC 2 Type II. Risk registers, risk quantification (FAIR model), audit methodology, BCP/DR planning, security policy writing.',
+          outcomes:['Conduct a gap analysis against ISO 27001', 'Build and maintain a risk register with CVSS and business impact', 'Write information security policies that meet compliance requirements', 'Understand what a SOC 2 Type II audit involves', 'Implement NIST CSF across an organisation', 'Understand GDPR data protection obligations'],
+          salary:'PKR 150–350k/mo (GRC analyst)', jobs:['GRC analyst', 'Compliance manager', 'Risk analyst', 'IT auditor', 'vCISO'],
+          tools:['NIST CSF', 'ISO 27001', 'OpenRMF', 'ServiceNow GRC'],
+          resources:[
+            { type:'free', name:'NIST Cybersecurity Framework 2.0 (free official)', url:'https://www.nist.gov/cyberframework', teaches:'<strong>What it is:</strong> The most widely used security framework globally — free from NIST. <strong>What you will learn:</strong> 6 functions (Govern, Identify, Protect, Detect, Respond, Recover) with implementation tiers and profiles. How to structure an entire security programme around measurable outcomes.' },
+            { type:'free', name:'ISO 27001 implementation guide — IT Governance', url:'https://www.itgovernance.co.uk/iso27001', teaches:'<strong>What it is:</strong> Free practical guide to ISO 27001 implementation. <strong>What you will learn:</strong> The 93 Annex A controls, how an ISMS works, gap analysis methodology, audit preparation, certification process. ISO 27001 is required by an increasing number of enterprise contracts.' },
+            { type:'cert', name:'CISA — Certified Information Systems Auditor', url:'https://www.isaca.org/credentialing/cisa', teaches:'<strong>What it is:</strong> The premier IS audit certification from ISACA. <strong>What it proves:</strong> You can assess, audit, and control information systems. Required at many banks, healthcare organisations, and consulting firms for GRC roles.' },
+          ]
+        },
+      ]
+    },
+  ]
+},
+
+{
+  id:'p4', label:'Phase 4', name:'Cloud Security Mastery', time:'Year 2–4',
+  cat:'cloud', color:'#057a55',
+  desc:'The highest volume of security jobs today are cloud security roles. Cloud misconfiguration is the #1 cause of data breaches. CCSP and AWS Security Specialty are the most in-demand certs after CISSP.',
+  sections:[
+    { title:'Cloud foundations to security specialist',
+      topics:[
+        { id:'t-cloud-core', name:'Cloud architecture & shared responsibility', diff:2, time:'1–2 months',
+          desc:'IaaS/PaaS/SaaS service models, shared responsibility matrix, multi-cloud concepts, cloud-native vs lift-and-shift architecture, availability zones, regions, edge locations, cloud billing and cost security implications. Pick one cloud first — AWS is most in-demand.',
+          outcomes:['Explain exactly what the customer vs cloud provider is responsible for in each service model', 'Design multi-AZ architectures for high availability', 'Identify security implications of different cloud service models', 'Understand cloud cost management and billing anomaly detection'],
+          salary:'PKR 120–200k/mo (cloud foundations)', jobs:['Cloud support engineer', 'Junior cloud architect'],
+          tools:['AWS Console', 'Azure Portal', 'GCP Console', 'Terraform'],
+          resources:[
+            { type:'free', name:'AWS Cloud Practitioner Essentials (free)', url:'https://explore.skillbuilder.aws/learn/course/external/view/elearning/134/aws-cloud-practitioner-essentials', teaches:'<strong>What it is:</strong> Official free AWS foundations course — 6 hours. <strong>What you will learn:</strong> AWS global infrastructure, core services, shared responsibility model, pricing and billing, security basics. Must-do before any AWS security work. Free on AWS Skill Builder.' },
+            { type:'cert', name:'AWS Certified Cloud Practitioner', url:'https://aws.amazon.com/certification/certified-cloud-practitioner/', teaches:'<strong>What it is:</strong> Entry-level AWS certification. <strong>What it proves:</strong> You understand AWS cloud fundamentals. Prereq for all AWS security specialty work. Exam fee ~$100.' },
+          ]
+        },
+        { id:'t-iam', name:'Cloud IAM & zero trust architecture', diff:3, time:'2–3 months',
+          desc:'AWS IAM policies (least privilege, permission boundaries, SCPs), Entra ID (Azure AD) users/groups/roles, managed identities, service accounts, OAuth 2.0 / OIDC / SAML federation, MFA enforcement, Privileged Identity Management, Zero Trust Architecture (NIST SP 800-207).',
+          outcomes:['Write least-privilege IAM policies from scratch', 'Implement service-to-service authentication without long-lived keys', 'Federate identity with SAML/OIDC to a third-party IdP', 'Design a Zero Trust network architecture', 'Audit existing IAM configurations for over-permission', 'Implement MFA enforcement across an organisation'],
+          salary:'PKR 200–380k/mo (IAM architect)', jobs:['IAM engineer', 'Cloud security engineer', 'Zero trust architect'],
+          tools:['AWS IAM Access Analyzer', 'AWS Config', 'Entra ID', 'HashiCorp Vault'],
+          resources:[
+            { type:'free', name:'AWS IAM Workshop — hands-on labs', url:'https://catalog.workshops.aws/general-immersionday/en-US/foundational/iam', teaches:'<strong>What it is:</strong> Official AWS IAM hands-on workshop — free. <strong>What you will learn:</strong> Writing and testing policies, using IAM Access Analyzer to find overpermissioned roles, implementing least-privilege systematically. IAM misconfiguration is the #1 cloud breach vector.' },
+            { type:'free', name:'NIST SP 800-207 — Zero Trust Architecture (free)', url:'https://csrc.nist.gov/publications/detail/sp/800-207/final', teaches:'<strong>What it is:</strong> The definitive Zero Trust Architecture specification from NIST. <strong>What you will learn:</strong> Seven tenets of ZTA, deployment models (microsegmentation, SASE, software-defined perimeter), use cases. Every enterprise now has a Zero Trust initiative — understand it from the source.' },
+          ]
+        },
+        { id:'t-devsecops', name:'DevSecOps & CI/CD pipeline security', diff:3, time:'3–4 months',
+          desc:'Shift-left security philosophy, SAST (Semgrep, Checkmarx), DAST (OWASP ZAP, Nuclei), SCA (Snyk, Dependabot), secrets scanning (Gitleaks, TruffleHog), container image scanning (Trivy, Grype), IaC scanning (Checkov, tfsec), supply chain security (SBOM, Sigstore/cosign), CI/CD pipeline hardening.',
+          outcomes:['Integrate SAST into a GitHub Actions pipeline', 'Scan container images for CVEs before deployment', 'Detect hardcoded secrets in git history', 'Build SBOM for any containerised application', 'Scan Terraform/CloudFormation for misconfigurations', 'Implement branch protection and code signing'],
+          salary:'PKR 280–500k/mo (DevSecOps engineer)', jobs:['DevSecOps engineer', 'Platform security engineer', 'AppSec engineer'],
+          tools:['Semgrep', 'Trivy', 'Gitleaks', 'Checkov', 'Snyk', 'GitHub Actions', 'cosign'],
+          resources:[
+            { type:'free', name:'OWASP DevSecOps Guideline', url:'https://owasp.org/www-project-devsecops-guideline/', teaches:'<strong>What it is:</strong> Complete framework for integrating security into every DevOps stage — free. <strong>What you will learn:</strong> What tests to run at each pipeline stage (commit → build → test → deploy), tool recommendations, implementation guidance. The standard reference for building a DevSecOps programme.' },
+            { type:'free', name:'Semgrep — open-source SAST', url:'https://semgrep.dev', teaches:'<strong>What it is:</strong> Pattern-based static analysis tool — free and open source. <strong>What you will learn:</strong> Write custom rules to detect security issues specific to your codebase, use 3000+ community rules for common languages, integrate into CI/CD. Faster and more accurate than regex-based tools.' },
+            { type:'free', name:'Trivy — container and IaC vulnerability scanner', url:'https://aquasecurity.github.io/trivy/', teaches:'<strong>What it is:</strong> The most popular open-source container security scanner. <strong>What you will learn:</strong> Scan Docker images, Kubernetes manifests, Terraform files, and git repositories for CVEs, misconfigurations, and exposed secrets. Used by millions of DevOps pipelines.' },
+            { type:'paid', name:'Practical DevSecOps — full certification course', url:'https://www.practical-devsecops.com', teaches:'<strong>What it is:</strong> Hands-on DevSecOps course with a real pipeline lab environment. <strong>What you will learn:</strong> SAST, DAST, SCA, secrets scanning, compliance-as-code, container security, IaC security — all integrated into a complete CI/CD pipeline. Most comprehensive DevSecOps training available.' },
+          ]
+        },
+        { id:'t-ccsp', name:'CCSP — Certified Cloud Security Professional', diff:4, time:'12–18 months',
+          desc:'6 domains: cloud concepts and architecture, cloud data security, cloud platform and infrastructure security, cloud application security, cloud security operations, legal/risk/compliance. The most globally recognised cloud security professional certification.',
+          outcomes:['Design secure cloud architecture across all major providers', 'Implement cloud data security including encryption key management', 'Assess and manage cloud-specific risks and threats', 'Understand multi-jurisdiction compliance for cloud deployments', 'Lead cloud security operations including SIEM and incident response', 'Achieve CCSP certification (requires 5yr IT + 3yr security + 1yr cloud experience)'],
+          salary:'PKR 400–800k/mo (cloud security architect)', jobs:['Cloud security architect', 'Cloud CISO', 'Cloud security consultant', 'Principal security engineer'],
+          tools:['All major cloud consoles', 'CSPM tools', 'CASB solutions'],
+          resources:[
+            { type:'free', name:'(ISC)² CCSP free student workbook', url:'https://www.isc2.org/certifications/ccsp/ccsp-student-workbook', teaches:'<strong>What it is:</strong> Official free study materials from (ISC)². <strong>What you will learn:</strong> Domain outlines, key concept summaries, sample questions. Use as a study guide skeleton — add your own notes.' },
+            { type:'paid', name:'CCSP All-in-One Exam Guide — Ben Carter', url:'https://www.mheducation.com/highered/product/ccsp-certified-cloud-security-professional-all-one-exam-guide-third-edition-carter/M9781260565997.html', teaches:'<strong>What it is:</strong> The most comprehensive CCSP study book — 700 pages. <strong>What you will learn:</strong> All 6 CCSP domains with detailed explanations, real-world examples, and practice questions. The primary study guide for serious candidates.' },
+            { type:'cert', name:'CCSP certification', url:'https://www.isc2.org/certifications/ccsp', teaches:'<strong>What it is:</strong> The globally recognised cloud security professional certification. <strong>What it opens:</strong> Cloud security architect roles, senior cloud security positions, CISO track at cloud-native organisations. Prereq: 5yr IT experience + 3yr security + 1yr cloud.' },
+            { type:'cert', name:'AWS Security Specialty (SCS-C02)', url:'https://aws.amazon.com/certification/certified-security-specialty/', teaches:'<strong>What it is:</strong> AWS\'s deep security certification. <strong>What you will learn and prove:</strong> Advanced AWS security — Detective, GuardDuty, Security Hub, Macie, WAF configuration, Shield Advanced, CloudTrail analytics, encryption strategy, security automation. Best AWS security cert to pair with CCSP.' },
+          ]
+        },
+      ]
+    },
+  ]
+},
+
+{
+  id:'p5', label:'Phase 5', name:'AI Security Mastery', time:'Year 3–5',
+  cat:'ai', color:'#5521b5',
+  desc:'AI security is the fastest-growing and highest-paying security niche of 2025–2030. Almost nobody has formal expertise yet — the gap between supply and demand is enormous.',
+  note:{type:'warn', text:'Prerequisites: solid Python programming, basic understanding of how APIs work, familiarity with web application security. You do not need a machine learning PhD — but you need to understand how AI systems are built to secure them.'},
+  sections:[
+    { title:'AI & ML foundations for security',
+      topics:[
+        { id:'t-ml-basics', name:'Machine learning fundamentals for security', diff:2, time:'2–3 months',
+          desc:'Supervised and unsupervised learning, neural network architecture, transformer models and attention mechanism, LLM training and fine-tuning concepts, inference pipeline, embeddings, vector databases, RAG (Retrieval-Augmented Generation) architecture. You must understand AI to secure it.',
+          outcomes:['Explain how transformers and attention work at a conceptual level', 'Understand the LLM training pipeline from data to deployment', 'Know how RAG systems work and their security implications', 'Understand embeddings and why they can leak information', 'Read and understand AI system architecture diagrams', 'Identify the attack surface of an LLM-powered application'],
+          salary:'Strong foundation for AI security premium', jobs:['AI security engineer', 'ML security researcher'],
+          tools:['Python', 'HuggingFace Transformers', 'OpenAI API', 'LangChain'],
+          resources:[
+            { type:'free', name:'Andrej Karpathy — Neural Networks: Zero to Hero (YouTube)', url:'https://www.youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ', teaches:'<strong>What it is:</strong> Build GPT from scratch in Python — the definitive deep learning course for people who want real understanding. <strong>What you will learn:</strong> Backpropagation, language models, attention mechanism, the full transformer architecture — all built from scratch with no magic. Watching this puts you ahead of 95% of AI security practitioners who just use APIs.' },
+            { type:'free', name:'fast.ai — Practical Deep Learning for Coders (free)', url:'https://course.fast.ai', teaches:'<strong>What it is:</strong> Top-down practical ML course — build first, understand theory second. Free. <strong>What you will learn:</strong> Image classification, NLP, tabular data, diffusion models — in 8 weeks with real code. Used by many ML practitioners as their primary education.' },
+            { type:'free', name:'Kaggle Learn — ML courses (free with certificates)', url:'https://www.kaggle.com/learn', teaches:'<strong>What it is:</strong> Short hands-on ML courses with notebooks — free. <strong>What you will learn:</strong> Intro ML, intermediate ML, feature engineering, NLP, deep learning. Practice on real datasets with instant feedback. Course certificates validate completion.' },
+          ]
+        },
+      ]
+    },
+    { title:'LLM vulnerabilities & attacks',
+      topics:[
+        { id:'t-owasp-llm', name:'OWASP LLM Top 10 — complete deep dive', diff:3, time:'2–3 months',
+          desc:'LLM01 Prompt Injection (direct and indirect), LLM02 Insecure Output Handling, LLM03 Training Data Poisoning, LLM04 Model Denial of Service, LLM05 Supply Chain Vulnerabilities, LLM06 Sensitive Information Disclosure, LLM07 Insecure Plugin Design, LLM08 Excessive Agency, LLM09 Overreliance, LLM10 Model Theft.',
+          outcomes:['Exploit all 10 OWASP LLM vulnerability classes in a lab', 'Demonstrate indirect prompt injection through a poisoned document', 'Show how excessive agency enables lateral movement in agentic systems', 'Identify and test all LLM attack surfaces in a given application', 'Write a security assessment report for an LLM application'],
+          salary:'PKR 300–600k/mo (LLM security engineer)', jobs:['AI red-teamer', 'LLM security engineer', 'AI application security analyst'],
+          tools:['Garak', 'PyRIT', 'LLM-Guard', 'Burp Suite + AI extensions'],
+          resources:[
+            { type:'free', name:'OWASP LLM Top 10 official guide', url:'https://owasp.org/www-project-top-10-for-large-language-model-applications/', teaches:'<strong>What it is:</strong> The security community standard reference for LLM vulnerabilities — free. <strong>What you will learn:</strong> Each risk with detailed description, attack scenarios, real-world impact, prevention strategies, and example vulnerable vs. secure code. Read every entry in full — this is your primary AI security reference.' },
+            { type:'free', name:'MITRE ATLAS — AI threat framework', url:'https://atlas.mitre.org', teaches:'<strong>What it is:</strong> ATT&CK for AI/ML systems — adversary tactics mapped to machine learning systems. <strong>What you will learn:</strong> ML-specific attack techniques: reconnaissance of ML APIs, training data poisoning, model evasion, model inversion, AML attack chains. Use alongside OWASP LLM Top 10 for a complete threat model.' },
+            { type:'free', name:'Johann Rehberger\'s blog — prompt injection research', url:'https://embracethered.com/blog/', teaches:'<strong>What it is:</strong> The best practical research on prompt injection and LLM exploitation — free. <strong>What you will learn:</strong> Real exploits against GPT, Claude, Copilot, Bing with full technical detail. Exfiltration techniques, indirect injection via emails and documents, plugin exploitation. Read every post.' },
+            { type:'free', name:'Lakera — Gandalf prompt injection challenge', url:'https://gandalf.lakera.ai', teaches:'<strong>What it is:</strong> Learn prompt injection by playing a game — free. <strong>What you will learn:</strong> Extract the password from an LLM through 10 progressively harder defences. Each level teaches a real injection technique and a real defensive pattern. Best hands-on intro to prompt injection.' },
+          ]
+        },
+        { id:'t-adv-ml', name:'Adversarial ML attacks', diff:4, time:'2–3 months',
+          desc:'Evasion attacks (FGSM, PGD, C&W, AutoAttack), data poisoning attacks, model inversion attacks (reconstructing training data), membership inference attacks, model stealing, backdoor/trojan model attacks. Defences: adversarial training, certified robustness, input preprocessing.',
+          outcomes:['Implement FGSM evasion attack against an image classifier', 'Perform model inversion to extract training data from a model', 'Detect and mitigate data poisoning in a training pipeline', 'Evaluate a model\'s robustness against adversarial examples', 'Identify backdoor behaviour in a pre-trained model', 'Apply adversarial training as a defence'],
+          salary:'PKR 400–800k/mo (adversarial ML researcher)', jobs:['ML security researcher', 'AI red-teamer', 'Adversarial ML engineer'],
+          tools:['Adversarial Robustness Toolbox', 'CleverHans', 'Foolbox', 'TextAttack'],
+          resources:[
+            { type:'free', name:'Adversarial Robustness Toolbox (ART) — IBM Research', url:'https://github.com/Trusted-AI/adversarial-robustness-toolbox', teaches:'<strong>What it is:</strong> Python library implementing 100+ attacks and defences — free from IBM Research. <strong>What you will learn:</strong> Attack any sklearn, PyTorch, TensorFlow, or Keras model. Evasion, poisoning, extraction, inference attacks — all with a consistent API. The standard tool for adversarial ML research and product security testing.' },
+            { type:'free', name:'Original FGSM paper — Goodfellow et al.', url:'https://arxiv.org/abs/1412.6572', teaches:'<strong>What it is:</strong> The seminal adversarial examples paper — free on ArXiv. <strong>What you will learn:</strong> Why neural networks are fooled by adversarial inputs, the mathematical insight behind FGSM, the "linearity hypothesis" for why it works. 8 pages. Reading this gives you the core intuition for all adversarial ML.' },
+            { type:'paid', name:'Practical Machine Learning Security (O\'Reilly)', url:'https://www.oreilly.com/library/view/practical-machine-learning/9781492073048/', teaches:'<strong>What it is:</strong> The professional ML security book — bridges ML engineering and security engineering. <strong>What you will learn:</strong> Data pipeline attacks, model theft, adversarial examples against real systems, supply chain attacks on ML, securing ML in production. Fills the gap between academic research and real-world application.' },
+          ]
+        },
+        { id:'t-llm-redteam', name:'LLM red-teaming & AI pentesting', diff:3, time:'2–3 months',
+          desc:'Direct and indirect prompt injection, jailbreaking techniques (DAN, persona switching, token smuggling, many-shot jailbreaking), context window attacks, RAG poisoning, multi-turn manipulation, tool/function call exploitation, multi-modal attacks (vision inputs), agentic system exploitation.',
+          outcomes:['Perform a structured red-team assessment of an LLM application', 'Document findings in a professional AI security assessment report', 'Test all injection vectors: direct, indirect, multi-turn, multi-modal', 'Exploit excessive agency in an agentic AI system', 'Test RAG pipeline for data poisoning vulnerabilities', 'Use Garak and PyRIT for automated LLM security testing'],
+          salary:'PKR 400–800k/mo (AI red-teamer)', jobs:['AI red-teamer', 'LLM pen-tester', 'AI security consultant'],
+          tools:['Garak', 'PyRIT', 'Promptmap', 'Burp Suite', 'Custom Python scripts'],
+          resources:[
+            { type:'free', name:'Garak — LLM vulnerability scanner', url:'https://github.com/leondz/garak', teaches:'<strong>What it is:</strong> Automated LLM red-teaming tool — free and open source. <strong>What you will learn:</strong> Run 100+ vulnerability probes against any LLM API — jailbreaks, data extraction, prompt injection, toxicity, hallucination. Run against every LLM you are responsible for securing. Generates structured reports.' },
+            { type:'free', name:'PyRIT — Microsoft\'s Python Red Team tool', url:'https://github.com/Azure/PyRIT', teaches:'<strong>What it is:</strong> Microsoft\'s enterprise LLM red-teaming framework — free and open source. <strong>What you will learn:</strong> Orchestrate multi-turn red-team conversations, use scoring engines to evaluate LLM responses, track findings in a database, integrate with Azure OpenAI and other providers. Production-grade tooling.' },
+            { type:'free', name:'Simon Willison — Prompt injection attacks blog', url:'https://simonwillison.net/2023/Apr/14/worst-that-could-happen/', teaches:'<strong>What it is:</strong> Essential reading on why prompt injection is a fundamental security problem. <strong>What you will learn:</strong> Why indirect injection through email content, web pages, or documents is so dangerous for agentic systems. Why current defences are insufficient. Every LLM application builder must read this.' },
+          ]
+        },
+      ]
+    },
+    { title:'LLM defence & AI governance',
+      topics:[
+        { id:'t-llm-harden', name:'LLM hardening, guardrails & MLSecOps', diff:3, time:'2–3 months',
+          desc:'Input/output filtering, semantic similarity defence, content classifiers, LLM-Guard, NeMo Guardrails, Lakera Guard, system prompt hardening, sandboxing agentic systems, securing the ML supply chain (ModelScan), model registry security, training infrastructure security.',
+          outcomes:['Deploy LLM-Guard in a production LLM application', 'Configure NeMo Guardrails to restrict LLM conversation scope', 'Scan model files for embedded malware with ModelScan', 'Design a secure LLM application architecture with defence in depth', 'Implement output validation to prevent insecure output handling', 'Build a threat model for an agentic AI system'],
+          salary:'PKR 350–700k/mo (AI security engineer)', jobs:['AI security engineer', 'MLSecOps engineer', 'LLM platform security'],
+          tools:['LLM-Guard', 'NeMo Guardrails', 'Lakera Guard', 'ModelScan', 'PromptArmor'],
+          resources:[
+            { type:'free', name:'LLM-Guard — Protect AI (free OSS)', url:'https://github.com/protectai/llm-guard', teaches:'<strong>What it is:</strong> Production LLM security layer with 20+ scanners — free and open source. <strong>What you will learn:</strong> Prompt injection detection, PII detection and anonymisation, toxicity filtering, code detection, language filtering, output validation. Drop into any LLM application as middleware.' },
+            { type:'free', name:'NVIDIA NeMo Guardrails (free OSS)', url:'https://github.com/NVIDIA/NeMo-Guardrails', teaches:'<strong>What it is:</strong> Conversation flow control for LLMs — free from NVIDIA. <strong>What you will learn:</strong> Define guardrails in YAML — what topics the LLM can discuss, how it handles jailbreak attempts, fact-checking against a knowledge base, output formatting. Used in production deployments at major enterprises.' },
+            { type:'free', name:'ModelScan — Protect AI (free OSS)', url:'https://github.com/protectai/modelscan', teaches:'<strong>What it is:</strong> Security scanner for ML model files — free. <strong>What you will learn:</strong> Scan pickle, PyTorch, TensorFlow, and Keras model files for embedded malware. Deserialization attacks in model files are a real and underappreciated threat vector in the ML supply chain.' },
+          ]
+        },
+        { id:'t-ai-gov', name:'AI governance, safety & regulatory compliance', diff:3, time:'2–3 months',
+          desc:'NIST AI RMF (Map, Measure, Manage, Govern functions), EU AI Act (high-risk AI classification, compliance requirements, prohibited uses), ISO 42001 AIMS, model cards and datasheets, bias auditing (Fairlearn, AI Fairness 360), explainability (SHAP, LIME, Integrated Gradients), red-team reports.',
+          outcomes:['Apply NIST AI RMF to an AI system deployment', 'Determine if a system falls under EU AI Act high-risk category', 'Write a model card for a deployed ML model', 'Perform bias audit on a classification model', 'Generate SHAP explanations for model predictions', 'Write an AI red-team assessment report'],
+          salary:'PKR 350–700k/mo (AI governance specialist)', jobs:['AI compliance officer', 'AI safety engineer', 'AI risk analyst', 'AI governance lead'],
+          tools:['SHAP', 'LIME', 'Fairlearn', 'IBM AI Fairness 360', 'Google What-If Tool'],
+          resources:[
+            { type:'free', name:'NIST AI Risk Management Framework (free PDF)', url:'https://www.nist.gov/system/files/documents/2023/01/26/AI%20RMF%201.0.pdf', teaches:'<strong>What it is:</strong> The US government\'s AI risk framework — free 64-page document. <strong>What you will learn:</strong> 4 core functions (Govern, Map, Measure, Manage), how to assess AI risks systematically, organisational responsibilities, documentation requirements. Becoming the global standard — your enterprise clients will require it.' },
+            { type:'free', name:'EU AI Act — full text and explanations', url:'https://artificialintelligenceact.eu', teaches:'<strong>What it is:</strong> The EU AI Act with article-by-article explanation — free resource. <strong>What you will learn:</strong> Risk categories (unacceptable, high, limited, minimal), what makes an AI system "high-risk", compliance requirements for each tier, timeline for enforcement, penalties. Essential if your work touches European markets or clients.' },
+            { type:'free', name:'SHAP — SHapley Additive exPlanations library', url:'https://shap.readthedocs.io', teaches:'<strong>What it is:</strong> The standard ML explainability library — free and open source. <strong>What you will learn:</strong> Explain any ML model\'s predictions, identify which features drive decisions, detect bias, generate visualisations for regulatory reporting. SHAP values are now required for many regulated AI deployments.' },
+          ]
+        },
+      ]
+    },
+  ]
+},
+
+{
+  id:'p6', label:'Phase 6', name:'Advanced Specialisations & CISSP', time:'Year 4–6',
+  cat:'advanced', color:'#9b1c1c',
+  desc:'This is where you separate from the senior security engineer tier and move toward architect, principal, or leadership roles. CISSP is the gateway to CISO and director-level positions.',
+  sections:[
+    { title:'Elite specialisations',
+      topics:[
+        { id:'t-vuln-research', name:'Vulnerability research & 0-day discovery', diff:5, time:'6–12 months',
+          desc:'Coverage-guided fuzzing (AFL++, libFuzzer), symbolic execution (angr, KLEE), source code auditing methodology, patch diffing (BinDiff, Diaphora), CVE discovery and responsible disclosure process, exploit reliability and weaponisation, bug bounty at scale.',
+          outcomes:['Fuzz a real-world application and find a crash', 'Audit C/C++ source code for memory safety issues', 'Perform patch diffing to find n-day vulnerabilities', 'Submit a bug bounty report that earns a payout', 'Write a CVE advisory and work through responsible disclosure', 'Understand exploit reliability and stabilisation techniques'],
+          salary:'$200k–$2M+ (elite VR — includes bounties)', jobs:['Vulnerability researcher', '0-day analyst', 'Bug bounty hunter', 'Exploit broker', 'Red team lead'],
+          tools:['AFL++', 'libFuzzer', 'angr', 'Ghidra', 'BinDiff', 'sanitizers (ASAN/MSAN)'],
+          resources:[
+            { type:'free', name:'AFL++ — state-of-the-art fuzzer', url:'https://github.com/AFLplusplus/AFLplusplus', teaches:'<strong>What it is:</strong> The leading coverage-guided fuzzer — free and open source. <strong>What you will learn:</strong> How to fuzz any binary, configure fuzzing campaigns, triage crashes, use AddressSanitizer to find root causes. Most real-world CVEs are found by fuzzers — this tool finds them.' },
+            { type:'free', name:'LiveOverflow — binary exploitation YouTube', url:'https://www.youtube.com/@LiveOverflow', teaches:'<strong>What it is:</strong> 10 years of vulnerability research and exploitation content — free. <strong>What you will learn:</strong> Real CVE analysis, CTF exploitation, kernel exploitation, browser security, hardware security. The channel where security researchers go to think out loud. Every video is a masterclass in security thinking.' },
+            { type:'free', name:'Google Project Zero blog', url:'https://googleprojectzero.blogspot.com', teaches:'<strong>What it is:</strong> Technical write-ups of real 0-day vulnerabilities from Google\'s elite research team — free. <strong>What you will learn:</strong> How the best vulnerability researchers in the world think, what bugs they look for in Chrome/iOS/Windows, how they develop exploits from bugs. Reading these builds security intuition that no course can provide.' },
+          ]
+        },
+        { id:'t-cloud-arch', name:'Cloud security architecture', diff:4, time:'3–4 months',
+          desc:'Enterprise zero-trust network design, SASE architecture, CASB deployment and policy, CNAPP platform evaluation and implementation, encryption key management strategy (HSMs, customer-managed keys), multi-cloud security strategy, cloud incident response playbooks, security architecture reviews.',
+          outcomes:['Design an enterprise zero-trust architecture for a 5000-person organisation', 'Evaluate and select CNAPP/CSPM tools against requirements', 'Define an encryption key management strategy', 'Write a cloud security architecture decision record', 'Lead a security architecture review for a major new cloud deployment', 'Build cloud incident response runbooks'],
+          salary:'PKR 600k–1.2M/mo (cloud security architect)', jobs:['Cloud security architect', 'Principal security engineer', 'Enterprise security architect', 'Freelance vCISO'],
+          tools:['AWS Well-Architected Tool', 'Azure Security Benchmark', 'Wiz', 'Orca Security', 'Prisma Cloud'],
+          resources:[
+            { type:'free', name:'AWS Architecture Center — security reference architectures', url:'https://aws.amazon.com/architecture/', teaches:'<strong>What it is:</strong> Official AWS architecture patterns and reference designs — free. <strong>What you will learn:</strong> How large organisations architect securely on AWS — multi-account strategies, network segmentation patterns, data classification implementations. Real production patterns from Netflix, Airbnb, financial institutions.' },
+            { type:'free', name:'AWS Well-Architected Framework — Security Pillar', url:'https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/welcome.html', teaches:'<strong>What it is:</strong> AWS\'s opinionated guide to secure cloud architecture — free. <strong>What you will learn:</strong> Identity foundations, detection, infrastructure protection, data protection, incident response — with specific AWS service recommendations for each area. Use in architecture reviews as a structured evaluation framework.' },
+          ]
+        },
+      ]
+    },
+    { title:'CISSP — the gold standard',
+      topics:[
+        { id:'t-cissp', name:'CISSP — Certified Information Security Professional', diff:5, time:'12–24 months study',
+          desc:'8 domains: Security and Risk Management, Asset Security, Security Architecture and Engineering, Communication and Network Security, Identity and Access Management, Security Assessment and Testing, Security Operations, Software Development Security. The most respected security cert in the world. Requires 5 years relevant experience.',
+          outcomes:['Demonstrate mastery across all 8 CISSP domains', 'Think from a management and risk perspective, not just technical', 'Pass the CAT (Computerised Adaptive Testing) exam — 125–175 questions', 'Achieve (ISC)² endorsement from an existing certified professional', 'Open CISO, Security Director, VP Security roles', 'Earn the single largest salary jump from any single certification'],
+          salary:'PKR 500k–1.2M/mo after CISSP (management track)', jobs:['CISO', 'Security director', 'GRC director', 'Security architect', 'vCISO consultant'],
+          tools:['All security domains — this is management-level synthesis'],
+          resources:[
+            { type:'free', name:'Prabh Nair — CISSP Memory Palace (YouTube, free)', url:'https://www.youtube.com/watch?v=_nyZhYnCNLA', teaches:'<strong>What it is:</strong> Free CISSP exam prep using memory techniques and mnemonics — 500k+ views. <strong>What you will learn:</strong> All 8 domains with memory anchors that stick. Covers governance, risk, crypto, identity, architecture, operations, software security. The most-watched free CISSP resource for a reason.' },
+            { type:'free', name:'Larry Greenblatt — CISSP free lectures (YouTube)', url:'https://www.youtube.com/c/ITMasterClass', teaches:'<strong>What it is:</strong> Free deep-dive CISSP lectures across all domains. <strong>What you will learn:</strong> Real understanding of CISSP concepts — not just memorisation. Governance, risk management, cryptography, network security, identity federation, incident response at the management level.' },
+            { type:'paid', name:'CISSP All-in-One Exam Guide — Harris & Maymi (9th Ed)', url:'https://www.mheducation.com/highered/product/cissp-all-one-exam-guide-ninth-edition-harris-maymi/M9781260467215.html', teaches:'<strong>What it is:</strong> The most comprehensive CISSP study book — 1400+ pages. <strong>What you will learn:</strong> Every concept in every domain, 1000+ practice questions, exam tips. The gold standard CISSP text — every serious candidate uses this.' },
+            { type:'cert', name:'CISSP certification — (ISC)²', url:'https://www.isc2.org/certifications/cissp', teaches:'<strong>What it is:</strong> The most respected security certification in the world. <strong>What it opens:</strong> CISO, Security Director, VP Security, Principal Architect roles. Average global salary: $135k+. Valid for 3 years with 120 CPE credits. Prereq: 5yr relevant experience in 2+ CISSP domains.' },
+          ]
+        },
+      ]
+    },
+  ]
+},
+
+{
+  id:'p7', label:'Phase 7', name:'Quantum Security — The Frontier', time:'Year 5–8',
+  cat:'quantum', color:'#b45309',
+  desc:'Quantum computing threatens the foundations of modern cryptography. RSA-2048 and ECC-256 — which protect virtually all internet traffic — will be broken by a sufficiently powerful quantum computer running Shor\'s algorithm. The transition to post-quantum cryptography is the largest cryptographic migration in history.',
+  note:{type:'warn', text:'STOP. Start quantum ONLY after: CISSP or CCSP earned, classical cryptography mastered at implementation level (AES, RSA, ECC), Python solid, and linear algebra comfortable. Attempting quantum security without this foundation wastes years and produces superficial knowledge. The 2030 CISA deadline is your target — 5–8 years from now is exactly right for starting this in year 5.'},
+  sections:[
+    { title:'Mathematical prerequisites',
+      topics:[
+        { id:'t-q-math', name:'Linear algebra & quantum mechanics foundations', diff:4, time:'3–4 months',
+          desc:'Vector spaces and subspaces, linear transformations, eigenvalues and eigenvectors, tensor products, complex numbers and complex vector spaces, Dirac bra-ket notation, quantum mechanics postulates (state vectors, superposition, measurement, entanglement), quantum gates, quantum circuits.',
+          outcomes:['Represent quantum states as vectors in Hilbert space', 'Apply quantum gates (Hadamard, CNOT, Toffoli) as matrix operations', 'Understand superposition and entanglement mathematically', 'Read and write quantum circuits in Qiskit', 'Explain measurement postulate and why it destroys superposition', 'Compute tensor products for multi-qubit systems'],
+          salary:'Prerequisite for quantum security specialist', jobs:['Quantum security researcher', 'Quantum cryptographer'],
+          tools:['Qiskit', 'IBM Quantum', 'Cirq', 'PennyLane'],
+          resources:[
+            { type:'free', name:'3Blue1Brown — Essence of Linear Algebra (YouTube)', url:'https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab', teaches:'<strong>What it is:</strong> The most beautiful visual introduction to linear algebra — free. <strong>What you will learn:</strong> Matrix operations as geometric transformations — the intuition you need before any quantum computing study. 15 videos, 20 minutes each. Watch before touching Qiskit.' },
+            { type:'free', name:'IBM Qiskit Textbook — Quantum Computing (free)', url:'https://qiskit.org/learn', teaches:'<strong>What it is:</strong> IBM\'s comprehensive free quantum computing textbook with runnable code. <strong>What you will learn:</strong> Single-qubit gates, multi-qubit states, quantum circuits, Grover\'s algorithm, Shor\'s algorithm — all with Python code you can run on real IBM quantum hardware for free.' },
+            { type:'free', name:'MIT OpenCourseWare — 8.04 Quantum Physics I', url:'https://ocw.mit.edu/courses/8-04-quantum-physics-i-spring-2016/', teaches:'<strong>What it is:</strong> Full MIT quantum mechanics course — free video lectures, problem sets, exams. <strong>What you will learn:</strong> Quantum postulates, Schrödinger equation, superposition, measurement theory. Focus on chapters 1–4 for quantum computing relevance. You do not need to complete the full course.' },
+            { type:'paid', name:'Quantum Computing: An Applied Approach — Jack Hidary', url:'https://www.springer.com/gp/book/9783030239213', teaches:'<strong>What it is:</strong> The best bridge between quantum computing and practical implementation. <strong>What you will learn:</strong> Quantum algorithms, error correction, hardware platforms, near-term applications — with real code in Qiskit, Cirq, and TensorFlow Quantum. Used in university courses globally.' },
+          ]
+        },
+      ]
+    },
+    { title:'Post-quantum cryptography',
+      topics:[
+        { id:'t-pqc', name:'Post-quantum cryptography standards', diff:5, time:'4–6 months',
+          desc:'Why RSA and ECC break under Shor\'s algorithm (integer factorisation, discrete logarithm). NIST PQC winner algorithms: CRYSTALS-Kyber (FIPS 203, KEM), CRYSTALS-Dilithium (FIPS 204, digital signature), FALCON (FIPS 206), SPHINCS+ (FIPS 205). Lattice-based cryptography (Learning With Errors), hash-based signatures, code-based cryptography.',
+          outcomes:['Explain why Shor\'s algorithm breaks RSA and ECC', 'Understand the mathematical foundation of lattice-based cryptography (LWE)', 'Implement Kyber key exchange using liboqs', 'Implement Dilithium signatures using liboqs', 'Compare security levels and performance characteristics of NIST PQC algorithms', 'Evaluate which PQC algorithms fit different use cases'],
+          salary:'$150k–$350k/yr (global — quantum crypto specialist)', jobs:['Post-quantum cryptographer', 'Quantum security engineer', 'Cryptography architect', 'Standards contributor'],
+          tools:['Open Quantum Safe (liboqs)', 'PyCryptodome', 'Botan', 'BouncyCastle PQC'],
+          resources:[
+            { type:'free', name:'NIST Post-Quantum Cryptography project (official)', url:'https://csrc.nist.gov/projects/post-quantum-cryptography', teaches:'<strong>What it is:</strong> The complete NIST PQC standardisation project — all documents free. <strong>What you will learn:</strong> Algorithm specifications for Kyber, Dilithium, FALCON, SPHINCS+ — security proofs, parameter sets, implementation guidance. These are the algorithms replacing RSA and ECC globally.' },
+            { type:'free', name:'Open Quantum Safe — liboqs library (free OSS)', url:'https://openquantumsafe.org', teaches:'<strong>What it is:</strong> Production-ready PQC implementations in C with Python, Go, Java, and Rust bindings — free. <strong>What you will learn:</strong> How to actually implement PQC-enabled applications. OQS-OpenSSL enables PQC in TLS. This is the tool you use to build real PQC deployments before it ships in standard libraries.' },
+            { type:'free', name:'Bernstein & Lange — PQCrypto course (YouTube)', url:'https://www.youtube.com/playlist?list=PLhkFiVnO0gE--fJBJ7kfW3rCv8sMuIFQf', teaches:'<strong>What it is:</strong> University-level PQC course from the researchers who designed the algorithms — free. <strong>What you will learn:</strong> Lattice cryptography foundations, hash-based signatures, code-based cryptography, isogeny-based crypto. Very technical — requires strong mathematical background.' },
+          ]
+        },
+        { id:'t-shor', name:'Shor\'s & Grover\'s algorithms', diff:5, time:'2–3 months',
+          desc:'Shor\'s algorithm — quantum period finding, quantum Fourier transform, why it factors large integers efficiently, exact computational complexity vs classical. Grover\'s search algorithm — quadratic speedup for unstructured search, implications for symmetric key length (AES-128 → effective 64-bit under Grover\'s). Threat model for cryptographic migration timelines.',
+          outcomes:['Trace through Shor\'s algorithm step by step', 'Explain why Grover\'s algorithm means AES-128 needs replacement', 'Run a simplified Shor\'s algorithm on IBM Quantum hardware', 'Calculate T-count and qubit requirements for cryptographically relevant Shor\'s', 'Advise on key size recommendations for post-quantum security margins', 'Build a quantum threat timeline for an organisation'],
+          salary:'Core knowledge for quantum security specialist', jobs:['Quantum security architect', 'Crypto migration lead'],
+          tools:['IBM Quantum', 'Qiskit', 'Quirk'],
+          resources:[
+            { type:'free', name:'IBM Quantum Learning — Shor\'s algorithm tutorial', url:'https://learning.quantum.ibm.com/tutorial/shors-algorithm', teaches:'<strong>What it is:</strong> Interactive walkthrough of Shor\'s algorithm with real quantum circuits — free, run on IBM quantum hardware. <strong>What you will learn:</strong> Quantum Fourier transform, phase estimation, period finding — how all these pieces combine to factor integers. Understanding this is essential for explaining the quantum threat to non-technical stakeholders.' },
+            { type:'free', name:'Scott Aaronson — Quantum Computing Since Democritus (lecture notes)', url:'https://www.scottaaronson.com/qclec.pdf', teaches:'<strong>What it is:</strong> Lecture notes from the most readable advanced quantum computing book — free PDF. <strong>What you will learn:</strong> Complexity theory, quantum algorithms, cryptography implications — written by the field\'s best communicator. Aaronson makes rigorous ideas accessible without dumbing them down.' },
+          ]
+        },
+        { id:'t-migration', name:'Cryptographic migration strategy', diff:4, time:'3–4 months',
+          desc:'Crypto agility design (algorithm-agnostic architecture), discovering and inventorying RSA/ECC usage across an enterprise, hybrid classical+PQC deployment (X25519+Kyber768), TLS 1.3 + PQC cipher suites, CISA quantum readiness guidance, NSA CNSA 2.0 algorithm requirements (2030 deadline), migration prioritisation framework.',
+          outcomes:['Inventory all cryptographic usage in an enterprise system', 'Prioritise migration based on data sensitivity and exposure', 'Deploy a hybrid classical+PQC TLS configuration', 'Write a quantum readiness assessment report', 'Build a 5-year cryptographic migration roadmap', 'Present quantum risk to executive and board audiences'],
+          salary:'PKR 500k–1.5M/mo (quantum security architect)', jobs:['Quantum security architect', 'Crypto migration lead', 'CISO (quantum-ready)', 'Government security advisor'],
+          tools:['OpenSSL 3.x + OQS provider', 'Cryptosense Analyzer', 'IBM Crypto Discovery'],
+          resources:[
+            { type:'free', name:'CISA Post-Quantum Cryptography Initiative (free)', url:'https://www.cisa.gov/quantum', teaches:'<strong>What it is:</strong> US government roadmap for the quantum transition — free. <strong>What you will learn:</strong> Official timeline (migrate by 2030), prioritisation guidance, sector-specific checklists, resources for each stage of migration. The authoritative planning document for enterprise quantum readiness.' },
+            { type:'free', name:'NSA CNSA 2.0 algorithm requirements (free PDF)', url:'https://media.defense.gov/2022/Sep/07/2003071834/-1/-1/0/CSA_CNSA_2.0_ALGORITHMS_.PDF', teaches:'<strong>What it is:</strong> NSA\'s official algorithm transition requirements — 1-page PDF. <strong>What you will learn:</strong> Exactly which algorithms are required for NSS (National Security Systems): CRYSTALS-Kyber, CRYSTALS-Dilithium, SPHINCS+, AES-256, SHA-384. If your work touches defence or government, this is mandatory reading.' },
+            { type:'free', name:'NIST IR 8547 — Migration to PQC guidance (free)', url:'https://csrc.nist.gov/pubs/ir/8547/ipd', teaches:'<strong>What it is:</strong> NIST\'s technical guidance on how to migrate — free. <strong>What you will learn:</strong> How to discover crypto usage in code and dependencies, how to prioritise systems for migration, hybrid deployment strategies, testing considerations. The how-to guide alongside CISA\'s why and when.' },
+            { type:'cert', name:'IBM Quantum Developer Certification', url:'https://www.ibm.com/training/certification/ibm-certified-associate-developer-quantum-computation-using-qiskit-v0-2x-C0010300', teaches:'<strong>What it is:</strong> Currently the main quantum computing certification available. <strong>What it proves:</strong> Ability to write quantum programs in Qiskit, understand quantum gates and circuits, run on real hardware. First credential for anyone pursuing quantum security professionally.' },
+          ]
+        },
+      ]
+    },
+    { title:'Quantum cryptographic protocols',
+      topics:[
+        { id:'t-qkd', name:'Quantum Key Distribution (QKD)', diff:5, time:'2–3 months',
+          desc:'BB84 protocol (quantum channel, basis reconciliation, error rate measurement, eavesdropping detection via no-cloning theorem), E91 entanglement-based QKD, quantum repeaters, QKD network architectures, QKD vs PQC trade-offs, practical deployment limitations (distance, cost, authentication problem).',
+          outcomes:['Explain BB84 protocol step by step including security proof', 'Simulate a QKD session with eavesdropping detection', 'Evaluate when QKD is preferable to PQC', 'Understand quantum repeaters and their role in long-distance QKD', 'Identify the practical limitations of current QKD deployments', 'Design a QKD network for a high-security use case'],
+          salary:'Specialist niche — government/banking premium', jobs:['Quantum network engineer', 'QKD specialist', 'Quantum security researcher'],
+          tools:['SimulaQron', 'NetSquid', 'Qiskit', 'ETSI QKD standards'],
+          resources:[
+            { type:'free', name:'IBM Quantum Learning platform (free access)', url:'https://learning.quantum.ibm.com', teaches:'<strong>What it is:</strong> Free quantum computing education with access to real IBM quantum hardware. <strong>What you will learn:</strong> Quantum circuits, algorithms, error correction, hardware characteristics. Run real quantum experiments — not just simulations.' },
+            { type:'free', name:'SimulaQron — quantum network simulator', url:'https://simulaqron.org', teaches:'<strong>What it is:</strong> Simulate quantum networks and QKD protocols without real hardware — free. <strong>What you will learn:</strong> Implement BB84, test eavesdropping detection, build entanglement distribution protocols. Understand QKD protocol mechanics through code before working with real quantum hardware.' },
+            { type:'free', name:'ETSI QKD standards (free)', url:'https://www.etsi.org/technologies/quantum-key-distribution', teaches:'<strong>What it is:</strong> Industry standards for QKD deployment — free from ETSI. <strong>What you will learn:</strong> What real QKD systems look like technically, their deployment requirements, integration with classical networks, security assumptions, limitations. Understanding standards is essential for enterprise QKD advisory work.' },
+          ]
+        },
+      ]
+    },
+  ]
+},
+
+{
+  id:'p8', label:'Phase 8', name:'Emerging Tech & World-Class Status', time:'Year 5+',
+  cat:'emerging', color:'#374151',
+  desc:'This phase is what separates good senior practitioners from globally recognised world-class experts. Publishing original research, speaking at top conferences, discovering real vulnerabilities, and building things that change the field.',
+  note:{type:'success', text:'By this phase you have enough depth to specialise in one of these emerging areas and become one of the world\'s leading experts within 2–3 years. The field is young enough that true mastery is achievable in your lifetime.'},
+  sections:[
+    { title:'Emerging security domains',
+      topics:[
+        { id:'t-blockchain', name:'Blockchain & smart contract security', diff:4, time:'4–6 months',
+          desc:'Solidity vulnerability classes (reentrancy, integer overflow, access control, tx.origin, delegatecall, front-running, flash loans), DeFi protocol attack surface (AMMs, lending, bridges), MEV (Miner Extractable Value), audit methodology (manual + automated), Slither/Echidna/Foundry, contest platforms (Code4rena, Sherlock).',
+          outcomes:['Audit a Solidity smart contract for all major vulnerability classes', 'Exploit a reentrancy vulnerability in a test environment', 'Write a professional smart contract audit report', 'Use Slither for automated vulnerability detection', 'Submit a finding to a competitive audit contest', 'Understand DeFi protocol interactions and cross-protocol attack surfaces'],
+          salary:'$200–$500/hr (smart contract auditor)', jobs:['Smart contract auditor', 'DeFi security researcher', 'Blockchain security engineer'],
+          tools:['Slither', 'Echidna', 'Foundry', 'Hardhat', 'MythX', 'Certora'],
+          resources:[
+            { type:'free', name:'Ethernaut — OpenZeppelin CTF (free)', url:'https://ethernaut.openzeppelin.com', teaches:'<strong>What it is:</strong> Smart contract security CTF by OpenZeppelin — free. <strong>What you will learn:</strong> 25+ levels, each a vulnerable smart contract you must exploit. Covers reentrancy, delegatecall, tx.origin, storage slot collisions, flash loans, signature replay. Real vulnerability patterns in a safe CTF environment.' },
+            { type:'free', name:'Slither — Trail of Bits static analyser (free)', url:'https://github.com/crytic/slither', teaches:'<strong>What it is:</strong> The most popular Solidity static analyser — free and open source. <strong>What you will learn:</strong> Automatically detect 80+ vulnerability classes, understand vulnerability categories through detected issues, write custom detectors for organisation-specific patterns. Used by every professional smart contract auditor.' },
+            { type:'paid', name:'Cyfrin Updraft — Smart Contract Auditing course', url:'https://updraft.cyfrin.io', teaches:'<strong>What it is:</strong> Professional smart contract auditing curriculum — 200+ hours. <strong>What you will learn:</strong> Complete auditing methodology, all major vulnerability classes with real case studies, using competitive audit platforms, preparing CodeHawks findings reports. Best comprehensive smart contract security education.' },
+          ]
+        },
+        { id:'t-iot', name:'IoT & embedded systems security', diff:4, time:'4–6 months',
+          desc:'Firmware extraction and analysis (binwalk, unblob), UART/JTAG debugging and hardware shell access, SPI/I2C bus analysis, RF analysis (SDR), bootloader bypass, RTOS security, automotive security (CAN bus, OBD-II, automotive Ethernet), medical device security (FDA requirements), industrial control systems (ICS/SCADA, OT).',
+          outcomes:['Extract and analyse firmware from an IoT device', 'Establish a UART shell on an embedded device', 'Identify hardcoded credentials in firmware', 'Capture and decode CAN bus traffic', 'Perform a basic hardware security assessment', 'Understand FDA medical device cybersecurity requirements'],
+          salary:'PKR 350–700k/mo (IoT/OT security)', jobs:['IoT security engineer', 'OT security specialist', 'Embedded security researcher', 'Hardware security analyst'],
+          tools:['binwalk', 'Ghidra', 'OpenOCD', 'HackRF', 'JTAG debuggers', 'Wireshark'],
+          resources:[
+            { type:'free', name:'Binwalk — firmware extraction and analysis', url:'https://github.com/ReFirmLabs/binwalk', teaches:'<strong>What it is:</strong> The first tool every firmware analyst uses — free. <strong>What you will learn:</strong> Extract file systems, find embedded encryption keys and passwords, identify compression types, analyse firmware structure. Most IoT vulnerabilities start with firmware extraction.' },
+            { type:'free', name:'OWASP IoT Attack Surface Areas', url:'https://owasp.org/www-project-internet-of-things/', teaches:'<strong>What it is:</strong> OWASP\'s IoT security framework — free. <strong>What you will learn:</strong> IoT attack surface mapping — ecosystem access points, device memory, device firmware, device network services, cloud web interface, third-party backends. Structured methodology for IoT security assessments.' },
+            { type:'paid', name:'The Hardware Hacking Handbook — No Starch', url:'https://nostarch.com/hardwarehacking', teaches:'<strong>What it is:</strong> The definitive hardware security reference. <strong>What you will learn:</strong> UART discovery and exploitation, JTAG debugging, SPI and I2C bus tapping, fault injection attacks, side-channel analysis, extracting secrets from physical devices. Every hardware security professional owns this book.' },
+          ]
+        },
+        { id:'t-ai-agents', name:'Agentic AI security', diff:4, time:'3–4 months',
+          desc:'Multi-agent system architectures, LLM orchestration frameworks (LangChain, AutoGPT, CrewAI), tool-use and function-call exploitation, memory and context manipulation, privilege escalation in agent systems, multi-hop prompt injection (agent-to-agent), computer-use agent attacks, agentic security design patterns.',
+          outcomes:['Map the attack surface of a multi-agent AI system', 'Demonstrate privilege escalation through agent tool misuse', 'Exploit indirect prompt injection in an agent that uses a web search tool', 'Design secure agentic system architecture with minimal-privilege tools', 'Write a threat model for a production agentic AI deployment', 'Implement monitoring and anomaly detection for agent behaviour'],
+          salary:'PKR 500k–1.5M/mo (agentic AI security — extremely rare)', jobs:['Agentic AI security engineer', 'AI systems security researcher', 'AI red team lead'],
+          tools:['LangChain', 'LangGraph', 'AutoGPT', 'AgentDojo', 'PyRIT'],
+          resources:[
+            { type:'free', name:'AgentDojo — AI agent security benchmark (free)', url:'https://github.com/ethz-spylab/agentdojo', teaches:'<strong>What it is:</strong> The first structured security benchmark for AI agents — free from ETH Zurich. <strong>What you will learn:</strong> Real attack scenarios where injected content manipulates agent behaviour, how to measure your agent\'s resistance to adversarial inputs, what defences actually work.' },
+            { type:'free', name:'Simon Willison — Prompt injection in agentic systems', url:'https://simonwillison.net/2023/Apr/14/worst-that-could-happen/', teaches:'<strong>What it is:</strong> The clearest analysis of why prompt injection is existentially dangerous for agentic systems — free. <strong>What you will learn:</strong> Why every agentic system that uses untrusted content is fundamentally vulnerable, what mitigations help and why they\'re insufficient, what a comprehensive solution would require.' },
+            { type:'free', name:'LangChain security documentation (free)', url:'https://python.langchain.com/docs/security', teaches:'<strong>What it is:</strong> Official LangChain security guidance — free. <strong>What you will learn:</strong> Prompt injection in chains, tool call exploitation, output parser attacks, OWASP LLM Top 10 as applied to LangChain. Essential for anyone building or auditing LangChain-based applications.' },
+          ]
+        },
+        { id:'t-zk', name:'Zero-knowledge proofs & privacy tech', diff:5, time:'4–6 months',
+          desc:'ZK-SNARKs (Groth16, PLONK), ZK-STARKs (FRI protocol, polynomial commitments), ZK circuit writing in Circom, homomorphic encryption concepts (FHE, PHE), secure multi-party computation (MPC), differential privacy, privacy-preserving ML. The future infrastructure of private computation.',
+          outcomes:['Write and compile a basic ZK circuit in Circom', 'Explain the difference between SNARKs and STARKs', 'Identify vulnerabilities in ZK circuit implementations', 'Understand when to use FHE vs MPC vs ZK proofs', 'Audit a ZK application for common implementation errors', 'Contribute to an open-source ZK project'],
+          salary:'$250k–$500k/yr (global — ZK security specialist)', jobs:['ZK security auditor', 'Privacy engineer', 'Cryptography researcher', 'ZK protocol developer'],
+          tools:['Circom', 'SnarkJS', 'RISC Zero', 'Aztec', 'StarkNet tools'],
+          resources:[
+            { type:'free', name:'ZKProof community resources (free)', url:'https://zkproof.org/resources/', teaches:'<strong>What it is:</strong> The ZK standardisation community\'s reference materials — free. <strong>What you will learn:</strong> ZK proof systems, standardisation efforts, implementation references, workshop proceedings. Start with the introductory overview papers.' },
+            { type:'free', name:'Vitalik Buterin — STARKs explained (free blog)', url:'https://vitalik.ca/general/2018/07/21/starks_part_3.html', teaches:'<strong>What it is:</strong> The best explanation of ZK-STARKs by Ethereum\'s creator — free. <strong>What you will learn:</strong> Polynomial commitments, FRI protocol, how STARKs achieve succinctness and transparency. If you can follow this post, you genuinely understand STARKs.' },
+            { type:'free', name:'Circom — ZK circuit language documentation (free)', url:'https://docs.circom.io', teaches:'<strong>What it is:</strong> Full documentation and tutorials for the Circom ZK DSL — free. <strong>What you will learn:</strong> Write ZK constraints, compile to R1CS, generate proofs and verify them. Hands-on ZK experience — used in production by major ZK applications.' },
+          ]
+        },
+      ]
+    },
+    { title:'Publishing, research & global recognition',
+      topics:[
+        { id:'t-research', name:'Security research, publishing & world-class recognition', diff:3, time:'Ongoing',
+          desc:'CVE discovery and responsible disclosure process, writing technical blog posts that get read by professionals, conference talk proposals (DEF CON, Black Hat, BSides, USENIX), academic paper structure (CCS, IEEE S&P, NDSS, USENIX Security), bug bounty programmes at scale (HackerOne, Bugcrowd, Intigriti), building public reputation.',
+          outcomes:['Publish at least one original technical security blog post per month', 'Submit a CVE through responsible disclosure', 'Earn a bug bounty payout (start with any amount)', 'Submit a talk proposal to a BSides conference', 'Build a public GitHub profile with original security tools', 'Be known by name in at least one security community'],
+          salary:'Opens $300k+/yr consulting and speaking opportunities', jobs:['Security researcher', 'Conference speaker', 'Security author', 'Bug bounty hunter', 'Security consultant'],
+          tools:['HackerOne', 'Bugcrowd', 'GitHub', 'Twitter/X', 'personal blog'],
+          resources:[
+            { type:'free', name:'HackerOne — bug bounty platform', url:'https://www.hackerone.com', teaches:'<strong>What it is:</strong> The world\'s largest bug bounty platform — free to join as a hacker. <strong>What you will learn:</strong> How to find and report real vulnerabilities in real production systems for cash. Start with low-severity issues to learn the report format, build reputation, then go for critical findings. Top HackerOne hackers earn over $1M/year.' },
+            { type:'free', name:'DEF CON — Call for Papers (CFP) submission guide', url:'https://defcon.org/html/links/dc-cfp.html', teaches:'<strong>What it is:</strong> The submission process for the world\'s most famous hacker conference — free. <strong>What you will learn:</strong> What DEF CON looks for in talk proposals, how to structure a compelling abstract, what makes research presentation-worthy. Start with local BSides conferences, work up to DEF CON.' },
+            { type:'free', name:'Google Scholar — security research papers', url:'https://scholar.google.com', teaches:'<strong>What it is:</strong> Free academic search engine covering all security research. <strong>What you will learn:</strong> How to find and read cutting-edge research. Follow top researchers from CMU, MIT, Stanford, ETH Zurich, Google Project Zero. Reading academic security papers keeps you 2–3 years ahead of the industry — that\'s the world-class edge.' },
+            { type:'free', name:'arXiv.org — security and cryptography preprints (free)', url:'https://arxiv.org/list/cs.CR/recent', teaches:'<strong>What it is:</strong> Free preprint server for computer security and cryptography papers. <strong>What you will learn:</strong> New research before it is published in conferences. Follow cryptography (cs.CR), AI/ML safety, and quantum computing sections to stay at the frontier.' },
+          ]
+        },
+      ]
+    },
+  ]
+},
+];
+
+// ═══════════════════════════════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════════════════════════════
+const STORAGE_KEY = 'sec_mastery_v3';
+let checked = new Set();
+let activeFilter = 'all';
+
+function loadProgress() {
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) checked = new Set(JSON.parse(saved));
+  } catch(e) {}
+}
+
+function saveProgress() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify([...checked]));
+  } catch(e) {}
+}
+
+// ═══════════════════════════════════════════════════════════════
+// STATS
+// ═══════════════════════════════════════════════════════════════
+function allTopics() {
+  return DATA.flatMap(p => p.sections.flatMap(s => s.topics));
+}
+
+function updateStats() {
+  const topics = allTopics();
+  const total = topics.length;
+  const done = topics.filter(t => checked.has(t.id)).length;
+  const pct = total ? Math.round(done / total * 100) : 0;
+  const totalRes = topics.reduce((sum, t) => sum + t.resources.length, 0);
+
+  document.getElementById('stat-done').textContent = done;
+  document.getElementById('stat-total').textContent = total;
+  document.getElementById('stat-pct').textContent = pct + '%';
+  document.getElementById('stat-res').textContent = totalRes;
+  document.getElementById('main-bar').style.width = pct + '%';
+  document.getElementById('prog-label-r').textContent = done + ' / ' + total + ' topics';
+
+  const curPhase = DATA.find(p => p.sections.flatMap(s => s.topics).some(t => !checked.has(t.id)));
+  document.getElementById('stat-phase').textContent = curPhase ? curPhase.label : 'Done!';
+}
+
+// ═══════════════════════════════════════════════════════════════
+// RENDER
+// ═══════════════════════════════════════════════════════════════
+const DIFF_LABELS = ['', 'Beginner', 'Moderate', 'Hard', 'Expert', 'Pioneer'];
+
+function resHTML(r) {
+  return `<div class="resource-item">
+    <span class="res-badge rb-${r.type}">${r.type.toUpperCase()}</span>
+    <div class="res-content">
+      <div class="res-name"><a href="${r.url}" target="_blank" rel="noopener">${r.name}</a></div>
+      <div class="res-teaches">${r.teaches}</div>
+    </div>
+  </div>`;
+}
+
+function topicHTML(t) {
+  const done = checked.has(t.id);
+  const outcomesHTML = t.outcomes && t.outcomes.length ? `
+    <div class="topic-outcomes">
+      <div class="outcomes-label">What you will be able to do</div>
+      <div class="outcomes-grid">${t.outcomes.map(o => `<div class="outcome-item">${o}</div>`).join('')}</div>
+    </div>` : '';
+  const toolsHTML = t.tools && t.tools.length ? `
+    <div class="tools-row">${t.tools.map(tool => `<span class="tool-chip">${tool}</span>`).join('')}</div>` : '';
+  const jobsHTML = t.jobs && t.jobs.length ? `
+    <div class="job-chips">${t.jobs.map(j => `<span class="job-chip">${j}</span>`).join('')}</div>` : '';
+  const footerHTML = (t.salary || (t.jobs && t.jobs.length)) ? `
+    <div class="topic-footer">
+      ${t.salary ? `<div class="footer-item"><strong>Salary range:</strong> ${t.salary}</div>` : ''}
+      ${t.jobs && t.jobs.length ? `<div class="footer-item"><strong>Opens roles:</strong></div>${jobsHTML}` : ''}
+    </div>` : '';
+
+  return `<div class="topic${done ? ' done-topic' : ''}" id="tp-${t.id}">
+    <div class="topic-row">
+      <div class="chk${done ? ' done' : ''}" id="chk-${t.id}" onclick="toggleTopic('${t.id}')" title="Mark as complete"></div>
+      <div class="topic-body">
+        <div class="topic-top">
+          <div class="topic-name" onclick="toggleTopic('${t.id}')">${t.name}</div>
+          <div class="topic-tags">
+            <span class="tag tag-diff-${t.diff}">${DIFF_LABELS[t.diff]}</span>
+            ${t.time ? `<span class="tag tag-time">${t.time}</span>` : ''}
+          </div>
+        </div>
+        <div class="topic-desc">${t.desc}</div>
+        ${outcomesHTML}
+        ${toolsHTML}
+        <div class="resources-label" style="margin-top:10px">Resources — click to open</div>
+        ${t.resources.map(resHTML).join('')}
+        ${footerHTML}
+      </div>
+    </div>
+  </div>`;
+}
+
+function phaseHTML(p) {
+  const topics = p.sections.flatMap(s => s.topics);
+  const done = topics.filter(t => checked.has(t.id)).length;
+  const total = topics.length;
+  const pct = total ? Math.round(done / total * 100) : 0;
+
+  const noteHTML = p.note ? `<div class="phase-note note-${p.note.type}"><strong>${p.note.type === 'warn' ? '⚠ Important:' : p.note.type === 'info' ? 'ℹ Note:' : '✓ Achievement:'}</strong> ${p.note.text}</div>` : '';
+
+  const sectionsHTML = p.sections.map(sec => `
+    <div class="section-header"><div class="section-title">${sec.title}</div></div>
+    ${sec.topics.map(topicHTML).join('')}
+  `).join('');
+
+  return `<div class="phase-block" id="pb-${p.id}">
+    <div class="phase-header" id="ph-${p.id}" onclick="togglePhase('${p.id}')">
+      <div class="ph-left">
+        <div class="phase-dot" style="background:${p.color}"></div>
+        <div class="phase-info">
+          <div class="phase-title-row">
+            <div class="phase-name">${p.label} — ${p.name}</div>
+            <span class="phase-label-tag" style="background:${p.color}20;color:${p.color}">${p.cat}</span>
+          </div>
+          <div class="phase-desc">${p.time} · ${total} topics · ${p.desc.substring(0, 80)}…</div>
+        </div>
+      </div>
+      <div class="phase-right">
+        <div class="phase-mini-bar">
+          <div class="phase-mini-fill" style="width:${pct}%;background:${p.color}"></div>
+        </div>
+        <div class="phase-count">${done}/${total} done</div>
+        <div class="phase-chevron" id="pch-${p.id}">▶</div>
+      </div>
+    </div>
+    <div class="phase-body" id="phb-${p.id}">
+      ${noteHTML}
+      ${sectionsHTML}
+    </div>
+  </div>`;
+}
+
+let openPhases = new Set(['p0', 'p1']);
+
+function renderAll(phases) {
+  const container = document.getElementById('phases-container');
+  if (!phases || !phases.length) {
+    container.innerHTML = `<div class="empty-state"><div class="empty-state-icon">🔍</div><h3>No topics found</h3><p>Try a different search term.</p></div>`;
+    return;
+  }
+  container.innerHTML = phases.map(phaseHTML).join('');
+  // Restore open states
+  phases.forEach(p => {
+    const body = document.getElementById('phb-' + p.id);
+    const chev = document.getElementById('pch-' + p.id);
+    const hdr = document.getElementById('ph-' + p.id);
+    if (openPhases.has(p.id) && body) {
+      body.style.display = 'block';
+      if (chev) chev.classList.add('open');
+      if (hdr) hdr.classList.add('open');
+    }
+  });
+}
+
+function buildFilters() {
+  const cats = [
+    {id:'all', label:'All phases'},
+    {id:'foundation', label:'Mindset'},
+    {id:'classical', label:'Classical'},
+    {id:'offensive', label:'Red team'},
+    {id:'defensive', label:'Blue team'},
+    {id:'cloud', label:'Cloud'},
+    {id:'ai', label:'AI security'},
+    {id:'advanced', label:'Advanced'},
+    {id:'quantum', label:'Quantum'},
+    {id:'emerging', label:'Emerging'},
+  ];
+  const container = document.getElementById('filter-btns');
+  container.innerHTML = cats.map(c =>
+    `<button class="filter-btn${activeFilter === c.id ? ' active' : ''}" onclick="setFilter('${c.id}', this)">${c.label}</button>`
+  ).join('');
+}
+
+// ═══════════════════════════════════════════════════════════════
+// INTERACTIONS
+// ═══════════════════════════════════════════════════════════════
+function togglePhase(id) {
+  const body = document.getElementById('phb-' + id);
+  const chev = document.getElementById('pch-' + id);
+  const hdr = document.getElementById('ph-' + id);
+  if (!body) return;
+  const isOpen = openPhases.has(id);
+  if (isOpen) {
+    body.style.display = 'none';
+    chev && chev.classList.remove('open');
+    hdr && hdr.classList.remove('open');
+    openPhases.delete(id);
+  } else {
+    body.style.display = 'block';
+    chev && chev.classList.add('open');
+    hdr && hdr.classList.add('open');
+    openPhases.add(id);
+  }
+}
+
+function toggleTopic(id) {
+  if (checked.has(id)) {
+    checked.delete(id);
+  } else {
+    checked.add(id);
+    showToast('Topic marked complete ✓');
+  }
+  const chkEl = document.getElementById('chk-' + id);
+  const topicEl = document.getElementById('tp-' + id);
+  if (chkEl) chkEl.className = 'chk' + (checked.has(id) ? ' done' : '');
+  if (topicEl) topicEl.className = 'topic' + (checked.has(id) ? ' done-topic' : '');
+  saveProgress();
+  updateStats();
+  // Update phase mini-bars
+  DATA.forEach(p => {
+    const topics = p.sections.flatMap(s => s.topics);
+    const done = topics.filter(t => checked.has(t.id)).length;
+    const total = topics.length;
+    const fill = document.querySelector(`#pb-${p.id} .phase-mini-fill`);
+    const count = document.querySelector(`#pb-${p.id} .phase-count`);
+    if (fill) fill.style.width = Math.round(done/total*100) + '%';
+    if (count) count.textContent = done + '/' + total + ' done';
+  });
+}
+
+function setFilter(cat, btn) {
+  activeFilter = cat;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('search-input').value = '';
+  const filtered = cat === 'all' ? DATA : DATA.filter(p => p.cat === cat);
+  openPhases = new Set(filtered.map(p => p.id));
+  renderAll(filtered);
+}
+
+function handleSearch(q) {
+  q = q.toLowerCase().trim();
+  if (!q) {
+    const filtered = activeFilter === 'all' ? DATA : DATA.filter(p => p.cat === activeFilter);
+    renderAll(filtered);
+    return;
+  }
+  const filtered = DATA.map(p => ({
+    ...p,
+    sections: p.sections.map(s => ({
+      ...s,
+      topics: s.topics.filter(t =>
+        t.name.toLowerCase().includes(q) ||
+        t.desc.toLowerCase().includes(q) ||
+        (t.outcomes || []).some(o => o.toLowerCase().includes(q)) ||
+        (t.tools || []).some(tool => tool.toLowerCase().includes(q)) ||
+        t.resources.some(r => r.name.toLowerCase().includes(q) || r.teaches.toLowerCase().includes(q))
+      )
+    })).filter(s => s.topics.length > 0)
+  })).filter(p => p.sections.length > 0);
+  openPhases = new Set(filtered.map(p => p.id));
+  renderAll(filtered);
+}
+
+function expandAll() {
+  DATA.forEach(p => openPhases.add(p.id));
+  renderAll(DATA);
+}
+
+function collapseAll() {
+  openPhases.clear();
+  renderAll(DATA);
+}
+
+function confirmReset() {
+  if (confirm('Reset all progress? This cannot be undone.')) {
+    checked.clear();
+    localStorage.removeItem(STORAGE_KEY);
+    updateStats();
+    renderAll(DATA);
+    showToast('Progress reset');
+  }
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2000);
+}
+
+// ═══════════════════════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════════════════════
+loadProgress();
+buildFilters();
+renderAll(DATA);
+updateStats();
+</script>
+</body>
+</html>
